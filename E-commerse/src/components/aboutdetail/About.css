@@ -1,0 +1,26 @@
+.feature-card {
+  background-color: rgba(13, 152, 177, 0.8);
+  height: 100%;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+
+
+.feature-icon {
+  font-size: 50px !important;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.feature-card h4 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  opacity: 0.9;
+}
