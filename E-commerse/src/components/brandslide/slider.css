@@ -1,0 +1,44 @@
+
+
+
+
+
+
+.set{
+    height: 60px;
+    width: 100px;
+}
+
+.caurosel{
+    margin: 10px auto ;
+    width: 80%;
+
+    display: flex;
+    overflow-x: auto;
+}
+.group{
+    display: flex;
+    gap: 2em ;
+    justify-content: center ;
+    align-items: center ;
+    padding: 1em ;
+    animation: spin 5s linear infinite ;
+}
+.caurosel::-webkit-scrollbar {
+    display:none;
+}
+.card{
+    height:50px;
+    width: 200px;
+    padding: 1em;
+    background: rgb(115, 63, 163);
+    font-size:3rem ;
+    border-radius:0.2em ;
+    text-align: center ;
+    align-content: center;
+
+}
+    @keyframes spin{
+    from {translate: 0;}
+    to {translate: -100%;}
+} 

@@ -5,7 +5,7 @@ import Newsletter from '../../components/news/Newsletter'
 const Product = () => {
   return (
     <>
-    <Navbar/>
+ 
     <div>
       <h1>Welcome to Product Page</h1>
     </div>

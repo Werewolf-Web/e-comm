@@ -9,11 +9,12 @@ import thum from '../../assets/thum.webp'
 
 import Newsletter from '../../components/news/Newsletter'
 import Aboutdetail from '../../components/aboutdetail/Aboutdetail'
+import Slidebr from '../../components/brandslide/Slidebr'
 
 const Home = () => {
   return (
     <>
-    <Navbar/>
+ 
 <div
   id="carouselExampleControlsNoTouching"
   className="carousel slide"
@@ -185,6 +186,8 @@ style={{height:"45px",width:"100px",borderRadius:"7px",backgroundColor:"#7ec276f
 </div>
 </div>
 </div>
+{/* ----------------  slide brand */}
+<Slidebr/>
 {/* ------------    about detail -------- */}
 <Aboutdetail/>
 {/* --------------------- newsletter -------------- */}
