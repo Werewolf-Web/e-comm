@@ -74,7 +74,7 @@ const Navbar = () => {
             <a href="#"><SearchIcon /></a>
             <a href="#"><LocalMallIcon /></a>
             <a href="#"><FavoriteBorderIcon /></a>
-            <a href="#"><AccountCircleSharpIcon /></a>
+            <a href="./auth/login"><AccountCircleSharpIcon /></a>
           </div>
         </div>
       </div>

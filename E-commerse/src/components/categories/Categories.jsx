@@ -14,7 +14,7 @@ const Categories = () => {
     style={{height:"330px"}}
     >
     <div>
-        <h2 style={{textAlign:"center", marginTop:"40px" ,fontSize:"50px",fontWeight:"bold"}}>Categories</h2>
+        <h2 style={{textAlign:"center", marginTop:"40px" ,fontSize:"50px",fontWeight:"500"}}>Categories</h2>
         <p style={{textAlign:"center"}}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, dicta reiciendis. Voluptatem quod dicta nesciunt!</p>
     </div>
         <div 

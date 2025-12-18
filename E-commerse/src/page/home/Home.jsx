@@ -10,6 +10,8 @@ import thum from '../../assets/thum.webp'
 import Newsletter from '../../components/news/Newsletter'
 import Aboutdetail from '../../components/aboutdetail/Aboutdetail'
 import Slidebr from '../../components/brandslide/Slidebr'
+import Collection from '../collection/Collection'
+
 
 const Home = () => {
   return (
@@ -107,7 +109,7 @@ const Home = () => {
     className="d-flex align-items-center justify-content-between p-4"
     style={{
       height: "250px",
-      width: "600px",
+      width: "550px",
       backgroundColor: "#d4d4d4ff",
       borderRadius: "15px"
     }}
@@ -161,7 +163,8 @@ const Home = () => {
 </div>
 
 <Categories/>
-    
+    {/*--------------       collection -----------  */}
+    <Collection/>
 {/* -------------------  thum part */}
 <div className=''
 style={{height:"490px"}}
@@ -188,6 +191,8 @@ style={{height:"45px",width:"100px",borderRadius:"7px",backgroundColor:"#7ec276f
 </div>
 {/* ----------------  slide brand */}
 <Slidebr/>
+
+{/* ----------------------product section---------------- */}
 {/* ------------    about detail -------- */}
 <Aboutdetail/>
 {/* --------------------- newsletter -------------- */}

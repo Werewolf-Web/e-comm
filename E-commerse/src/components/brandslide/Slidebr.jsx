@@ -22,18 +22,18 @@ const Slidebr = () => {
                 
                     <div className='caurosel'>
                         <div className='group'>
-                            <div className='card'><img className='set' src={samsang} width="150px" height="100px" alt="" /></div>
-                            <div className='card'><img className='set' src={zara} width="150px" height="100px" alt="" /></div>
-                            <div className='card'><img className='set' src={nikie} width="150px" height="100px" alt="" /></div>
-                            <div className='card'><img className='set' src={bag} width="150px" height="100px" alt="" /></div>
-                            <div className='card'><img className='set' src={louis} width="150px" height="100px" alt="" /></div>
+                            <div className='card'><a href=""><img className='set' src={samsang} width="150px" height="100px" alt="" /></a></div>
+                            <div className='card'><a href=""><img className='set' src={zara} width="150px" height="100px" alt="" /></a></div>
+                            <div className='card'><a href=""><img className='set' src={nikie} width="150px" height="100px" alt="" /></a></div>
+                            <div className='card'><a href=""><img className='set' src={bag} width="150px" height="100px" alt="" /></a></div>
+                            <div className='card'><a href=""><img className='set' src={louis} width="150px" height="100px" alt="" /></a></div>
                          </div>
-                           <div aria-hidden='true' className='group'>
-                            <div className='card'><img className='set' src={samsang} width="150px" height="100px" alt="" /></div>
-                            <div className='card'><img className='set' src={zara} width="150px" height="100px" alt="" /></div>
-                            <div className='card'><img className='set' src={nikie} width="150px" height="100px" alt="" /></div>
-                            <div className='card'><img className='set' src={bag} width="150px" height="100px" alt="" /></div>
-                            <div className='card'><img className='set' src={louis} width="150px" height="100px" alt="" /></div>
+                          <div aria-hidden='true' className='group'>
+                            <div className='card'><a href=""><img className='set' src={samsang} width="150px" height="100px" alt="" /></a></div>
+                            <div className='card'><a href=""><img className='set' src={zara} width="150px" height="100px" alt="" /></a></div>
+                            <div className='card'><a href=""><img className='set' src={nikie} width="150px" height="100px" alt="" /></a></div>
+                            <div className='card'><a href=""><img className='set' src={bag} width="150px" height="100px" alt="" /></a></div>
+                            <div className='card'><a href=""><img className='set' src={louis} width="150px" height="100px" alt="" /></a></div>
                          </div>
                     </div>
 
