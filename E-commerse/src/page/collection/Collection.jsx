@@ -44,7 +44,7 @@ const Collection = () => {
                  style={{ textAlign: "center", marginBottom: "20px", fontSize: "50px", fontWeight: "500"}}
                 >
                     
-                        <button className="btn " style={{ backgroundColor: "#01020377", color: "white",padding:"10px 20px",borderRadius:"8px" }}>View All</button>
+                    <a href="/products" style={{textDecoration:"none"}}>    <button className="btn " style={{ backgroundColor: "#01020377", color: "white",padding:"10px 20px",borderRadius:"8px" }}> View All</button></a>
 
                 
                 </div>
