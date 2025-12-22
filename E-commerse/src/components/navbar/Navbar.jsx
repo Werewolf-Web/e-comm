@@ -7,7 +7,9 @@ import LocalMallIcon from "@mui/icons-material/LocalMall";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light px-3">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light px-3"
+    
+    >
       <div className="container-fluid">
         
         {/* Logo */}
@@ -74,7 +76,7 @@ const Navbar = () => {
             <a href="#"><SearchIcon /></a>
             <a href="#"><LocalMallIcon /></a>
             <a href="#"><FavoriteBorderIcon /></a>
-            <a href="./auth/login"><AccountCircleSharpIcon /></a>
+            <a href="/auth/login"><AccountCircleSharpIcon /></a>
           </div>
         </div>
       </div>

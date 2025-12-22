@@ -4,6 +4,9 @@ import Home from './page/home/Home'
 import Product from './page/products/Product'
 import { Route, Routes } from 'react-router-dom'
 import Login from './auth/login/Login'
+import Register from './auth/register/Register'
+import Newsletter from './components/news/Newsletter'
+import Forpass from './auth/forget-password/Forpass'
 
 const App = () => {
   
@@ -13,9 +16,11 @@ const App = () => {
  <Routes>
     <Route path='/' element={<Home/>}/>
     <Route path='/products' element={<Product/>}/>
-       <Route path='/auth/login/' element={<Login/>}/>
+       <Route path='/auth/login' element={<Login/>}/>
+       <Route path='/auth/register' element={<Register/>}/>
+       <Route path='/auth/forget-password' element={<Forpass/>}/>
  </Routes>
-  
+  <Newsletter/>
     </>
   )
 }
