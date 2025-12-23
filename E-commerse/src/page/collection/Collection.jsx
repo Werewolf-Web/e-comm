@@ -10,7 +10,7 @@ const Collection = () => {
     const [product, setProduct] = useState([])
  
     useEffect(()=>{
-        fetch('http://localhost:3000/products')
+        fetch('http://192.168.9.200:3000/products')
         .then(res=>{
             return res.json();
         })

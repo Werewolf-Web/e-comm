@@ -10,8 +10,12 @@ import Filterr from '../../components/collect/Filterr'
 const Product = () => {
   const [product, setProduct] = useState([])
    
+const [Brand, setBrand] = useState('')
+const [Gender, setGender] = useState('')
+const [Color, setColor] = useState('')
+const [Size, setSize] = useState('')
       useEffect(()=>{
-          fetch('http://localhost:3000/products')
+          fetch('http://192.168.9.200:3000/products?brand='+ Brand +'&category=' + Gender +'&colors=' + Color +'&sizes=' + Size+'')
           .then(res=>{
               return res.json();
           })
@@ -21,7 +25,7 @@ const Product = () => {
           
           })
        
-      },[])
+      },[ Brand , Gender , Color , Size])
   return (
     <>
  
@@ -30,11 +34,21 @@ const Product = () => {
     >
     <Track/>
     </div>
+<div
+  className="d-flex"
+  style={{
+    alignItems: "flex-start", // keeps filter from stretching
+    gap: "20px",
+  }}
+>
+  <Filterr setBrand={setBrand} setGender={setGender} setColor={setColor} setSize={setSize}/>
 
-        <Filterr/>
-    
-<Productdata product={product}/>
+  <div style={{ flex: 1 }}>
+    <Productdata product={product} />
+  </div>
+</div>
 
+     
     </>
   )
 }
