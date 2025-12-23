@@ -8,7 +8,14 @@ const Card = ({ item }) => {
   const finalPrice = item.price - item.discount;
 
   return (
-    <div style={{ width: "270px" ,height:"355px",backgroundColor:"rgba(193, 190, 190, 0.7)",borderRadius:"8px"}}>
+
+
+    <> 
+
+    
+    
+    
+       <div style={{ width: "270px" ,height:"355px",backgroundColor:"rgba(193, 190, 190, 0.7)",borderRadius:"8px"}}>
       {/* IMAGE */}
       <img
         src={item.images[0]}
@@ -56,6 +63,8 @@ const Card = ({ item }) => {
 
       </div>
     </div>
+    </>
+
   );
 };
 

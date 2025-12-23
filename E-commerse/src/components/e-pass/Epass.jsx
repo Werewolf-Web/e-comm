@@ -6,13 +6,39 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const Epass = () => {
       const [showPassword, setShowPassword] = useState(false);
-    
+      const [Email, setEmail] = useState("")
+      const [Password, setPassword] = useState("")
+const handleLogin = () => {
+  if (!Email || !Password) {
+    alert("Enter email and password");
+    return;
+  }
+
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+
+  const loggedUser = users.find(
+    user => user.email === Email && user.password === Password
+  );
+
+  if (loggedUser) {
+    // store only logged-in user
+    localStorage.setItem("currentUser", JSON.stringify(loggedUser));
+
+    alert("Login Successful");
+  } else {
+    alert("Invalid email or password");
+  }
+  setEmail("");
+  setPassword("");
+};
+
+
   return (
     <>
       <div style={{ padding: "20px" }}>
         {/* EMAIL */}
         <div style={{ marginBottom: "15px" }}>
-          <label style={{ fontSize: "13px", fontWeight: "400" }}>Email</label>
+          <label style={{ fontSize: "14px", fontWeight: 500 }}>EMAIL</label>
 
           <div style={{ position: "relative" }}>
             <EmailIcon
@@ -39,6 +65,8 @@ const Epass = () => {
           
                 border: "1px solid #ccc",
               }}
+                           value={Email}
+                  onChange={(e) => setEmail(e.target.value)}
             />
           </div>
         </div>
@@ -95,6 +123,8 @@ const Epass = () => {
                 border: "1px solid #ccc",
                 fontSize: "16px",
               }}
+                      value={Password}
+                  onChange={(e) => setPassword(e.target.value)}
             />
           </div>
         </div>
@@ -155,6 +185,7 @@ const Epass = () => {
               fontSize: "13px",
               fontWeight: "700",
             }}
+                onClick={handleLogin}
           >
             Login
           </button>

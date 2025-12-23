@@ -11,7 +11,7 @@ const Newsletter = () => {
     style={{height:"330px",backgroundColor:"rgba(240, 240, 240, 0.67)",borderTop:"0.2px black",}}
     >
         <div 
-        style={{height:"130px",width:"800px",marginLeft:"250px",alignItems:"center",textAlign:"center",paddingTop:"20px"}}
+        style={{height:"130px",width:"800px",alignItems:"center",textAlign:"center",paddingTop:"20px",justifyContent:"center",marginRight:"auto",marginLeft:"auto"}}
         >
             <h1>News Letter</h1>
             <p style={{fontSize:"13px"}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>

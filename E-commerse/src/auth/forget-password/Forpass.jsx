@@ -50,7 +50,7 @@ const Forpass = () => {
           </p>
 
           <div style={{ padding: "0 20px" }}>
-            <label style={{ fontSize: "13px" }}>Email</label>
+            <label style={{ fontSize: "15px",fontWeight:500 }}>Email</label>
 
             <div style={{ position: "relative", marginBottom: "15px" }}>
               <EmailIcon

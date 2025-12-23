@@ -4,12 +4,14 @@ import Newsletter from '../../components/news/Newsletter'
 import Productdata from '../../components/collect/Productdata'
 import Card from '../../components/collect/Card'
 import Collection from '../collection/Collection'
+import Track from '../../components/collect/Track'
+import Filterr from '../../components/collect/Filterr'
 
 const Product = () => {
   const [product, setProduct] = useState([])
    
       useEffect(()=>{
-          fetch('http://192.168.9.200:3000/products')
+          fetch('http://localhost:3000/products')
           .then(res=>{
               return res.json();
           })
@@ -23,9 +25,14 @@ const Product = () => {
   return (
     <>
  
-    <div>
-    
+    <div
+    style={{height:"110px",marginTop:"20px"}}
+    >
+    <Track/>
     </div>
+
+        <Filterr/>
+    
 <Productdata product={product}/>
 
     </>
