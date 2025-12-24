@@ -1,24 +1,29 @@
 import React from "react";
 
-const Track = () => {
+const Track = (props) => {
   return (
     <>
 <div
   className="bg-primary text-white"
   style={{
     margin: "auto",
+    marginTop: "20px", 
     width: "85%",
-    height: "15vh",
     borderRadius: "8px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    paddingLeft: "50px",
+    paddingLeft: "40px",
+    height: "110px",
   }}
 >
   <h1>Product</h1>
-  <div >
+  <div className="d-flex gap-3" >
     <a href="/" style={{ textDecoration: "none",color:"white" }}>Home</a>
+    <span> > </span>
+    <a href="/products" style={{ textDecoration: "none",color:"white" }}>Products</a>
+    <span> > </span>
+    <p>{props.name}</p>
   </div>
 </div>
 

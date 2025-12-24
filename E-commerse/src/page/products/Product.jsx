@@ -8,14 +8,16 @@ import Track from '../../components/collect/Track'
 import Filterr from '../../components/collect/Filterr'
 
 const Product = () => {
+    
   const [product, setProduct] = useState([])
    
-const [Brand, setBrand] = useState('')
-const [Gender, setGender] = useState('')
-const [Color, setColor] = useState('')
-const [Size, setSize] = useState('')
+const [brand, setBrand] = useState('')
+const [gender, setGender] = useState([])
+const [color, setColor] = useState([])
+const [size, setSize] = useState([])
       useEffect(()=>{
-          fetch('http://192.168.9.200:3000/products?brand='+ Brand +'&category=' + Gender +'&colors=' + Color +'&sizes=' + Size+'')
+          fetch('http://192.168.9.200:3000/products?brand='+ brand +'&category=' + gender +'&colors=' + color +'&sizes=' + size)
+              // fetch('http://localhost:3000/products?brand='+ brand +'&category=' + gender +'&colors=' + color +'&sizes=' + size)
           .then(res=>{
               return res.json();
           })
@@ -25,14 +27,15 @@ const [Size, setSize] = useState('')
           
           })
        
-      },[ Brand , Gender , Color , Size])
+      },[ brand , gender , color , size])
+       console.log(color)
   return (
     <>
  
     <div
-    style={{height:"110px",marginTop:"20px"}}
+
     >
-    <Track/>
+    <Track />
     </div>
 <div
   className="d-flex"
@@ -41,7 +44,7 @@ const [Size, setSize] = useState('')
     gap: "20px",
   }}
 >
-  <Filterr setBrand={setBrand} setGender={setGender} setColor={setColor} setSize={setSize}/>
+  <Filterr brand={brand} gender={gender} color={color} size={size} setBrand={setBrand} setGender={setGender} setColor={setColor} setSize={setSize}/>
 
   <div style={{ flex: 1 }}>
     <Productdata product={product} />

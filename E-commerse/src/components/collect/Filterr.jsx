@@ -3,18 +3,19 @@ import MaleIcon from "@mui/icons-material/Male";
 import FemaleIcon from "@mui/icons-material/Female";
 import TransgenderIcon from "@mui/icons-material/Transgender";
 const Filterr = ({
-  Brand,
+  
   setBrand,
-  Gender,
+  
   setGender,
-  Color,
+  
   setColor,
-  Size,
+  color,
   setSize,
 }) => {
   const [product, setProduct] = useState([]);
   useEffect(() => {
     fetch("http://192.168.9.200:3000/products")
+        // fetch("http://localhost:3000/products")
       .then((res) => {
         return res.json();
       })
@@ -29,16 +30,12 @@ const Filterr = ({
   const uniqueColors = [...new Set(product.flatMap((item) => item.colors))];
 
   const uniqueSizes = [...new Set(product.flatMap((item) => item.sizes))];
-  console.log(Brand);
-  console.log(Gender);
-  console.log(Color);
-  console.log(Size);
-  console.log("-------------------");
+
   function Clearall() {
     setBrand("");
-    setGender("");
-    setSize("");
-    setColor("");
+    setGender([]);
+    setSize([]);
+    setColor([]);
   }
   return (
     <div
@@ -77,7 +74,7 @@ const Filterr = ({
               type="radio"
               name="brand" // same name = one selection
               value={brand} // value is brand
-              // checked={Brand === brand}  // controlled radio
+  
               onChange={(e) => setBrand(e.target.value)}
             />
             {brand}
@@ -103,16 +100,23 @@ const Filterr = ({
       {/* Colors */}
       <div style={{ marginBottom: "16px" }}>
         <h4>Colors</h4>
-        {uniqueColors.map((color, index) => (
-          <label key={index} style={{ display: "flex", gap: "8px" }}>
-            <input
-              type="checkbox"
-              value={color}
-              onChange={(e) => setColor(e.target.value)}
-            />
-            {color}
-          </label>
-        ))}
+  {uniqueColors.map((colorItem, index) => (
+  <label key={index} style={{ display: "flex", gap: "8px" }}>
+    <input
+      type="checkbox"
+      checked={color.includes(colorItem)}
+      onChange={(e) => {
+        if (e.target.checked) {
+          setColor([...color, colorItem]);
+        } else {
+          setColor(color.filter((c) => c !== colorItem));
+        }
+      }}
+    />
+    {colorItem}
+  </label>
+))}
+
       </div>
 
       {/* Sizes */}

@@ -122,7 +122,7 @@ const Home = () => {
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
-            <button className="btn btn-dark">Shop Now</button>
+            <button className="btn btn-dark"><a href="" style={{textDecoration:"none",color:"white"}}>Shop Now</a></button>
           </div>
 
           {/* IMAGE */}
@@ -138,7 +138,7 @@ const Home = () => {
           className="d-flex align-items-center justify-content-between p-4"
           style={{
             height: "250px",
-            width: "600px",
+            width: "550px",
             backgroundColor: "#d4d4d4ff",
             borderRadius: "15px"
           }}
@@ -150,7 +150,7 @@ const Home = () => {
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
-            <button className="btn btn-dark">Shop Now</button>
+            <button className="btn btn-dark"><a href="/products?gender=women" style={{textDecoration:"none",color:"white"}}>Shop Now</a></button>
           </div>
 
           {/* IMAGE */}

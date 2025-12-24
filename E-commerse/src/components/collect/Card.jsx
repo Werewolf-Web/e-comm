@@ -3,9 +3,14 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ProductDetail from "../../page/products/ProductDetail";
+import { Link } from "react-router-dom";
 
 const Card = ({ item }) => {
   const finalPrice = item.price - item.discount;
+
+
+
 
   return (
 
@@ -13,7 +18,7 @@ const Card = ({ item }) => {
     <> 
 
     
-    
+    <Link to={`/products/${item.id}`} style={{textDecoration:"none",color:"black"}}>
     
        <div style={{ width: "270px" ,height:"355px",backgroundColor:"rgba(193, 190, 190, 0.7)",borderRadius:"8px"}}>
       {/* IMAGE */}
@@ -63,6 +68,7 @@ const Card = ({ item }) => {
 
       </div>
     </div>
+    </Link>
     </>
 
   );

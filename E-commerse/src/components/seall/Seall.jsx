@@ -13,7 +13,8 @@ const Seall = () => {
   const [sell, setSell] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/products')
+        fetch('http://192.168.9.200:3000/products')
+    // fetch('http://localhost:3000/products')
       .then(res => res.json())
       .then(data => setSell(data));
   }, []);
