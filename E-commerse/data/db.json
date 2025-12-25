@@ -130,6 +130,38 @@
         "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg","https://commercehope-app.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdcuwtg4h1%2Fimage%2Fupload%2Fv1741717648%2F03833350811-e1_buoe8f.jpg&w=256&q=75"
       ],
       "description": "A dependable everyday T-shirt crafted with soft, breathable fabric. Its classic fit ensures comfort whether you're out or relaxing at home. Simple, versatile, and durable—ideal for daily wear."
-    }
+    },
+      {
+    "id": "9",
+    "name": "Women's Yoga Leggings",
+    "price": 45,
+    "discount": 8,
+    "brand": "Lululemon",
+    "category": "female",
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "colors": ["Black", "Navy", "Purple", "Gray"],
+    "stock": 28,
+    "images": [
+      "https://images.pexels.com/photos/35310356/pexels-photo-35310356.jpeg",
+      "https://images.pexels.com/photos/3822861/pexels-photo-3822861.jpeg"
+    ],
+    "description": "High-waisted yoga leggings with four-way stretch for maximum mobility. Moisture-wicking fabric keeps you dry during intense workouts. Perfect for yoga, gym sessions, or casual athleisure wear."
+  },
+  {
+    "id": "10",
+    "name": "Unisex Sports Backpack",
+    "price": 65,
+    "discount": 12,
+    "brand": "Nike",
+    "category": "unisex",
+    "sizes": ["One Size"],
+    "colors": ["Black", "Blue", "Red", "Gray"],
+    "stock": 15,
+    "images": [
+      "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg",
+      "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg"
+    ],
+    "description": "Durable sports backpack with multiple compartments for organized storage. Water-resistant material and padded straps for comfortable carrying. Ideal for gym, travel, or everyday school/work use."
+  }
   ]
 }

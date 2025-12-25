@@ -5,7 +5,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 
@@ -14,7 +14,7 @@ const Sell = ({item}) => {
     const finalPrice = item.price - item.discount;
   return (
     <>
-    
+        <Link to={`/products/${item.id}`} style={{textDecoration:"none",color:"black"}}>
        <div
       style={{
         width: "250px",
@@ -62,6 +62,7 @@ const Sell = ({item}) => {
         </div>
       </div>
     </div>
+    </Link>
     </>
   )
 }

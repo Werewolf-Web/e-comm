@@ -5,7 +5,7 @@ import TransgenderIcon from "@mui/icons-material/Transgender";
 const Filterr = ({
   
   setBrand,
-  
+  gender,
   setGender,
   
   setColor,
@@ -14,8 +14,8 @@ const Filterr = ({
 }) => {
   const [product, setProduct] = useState([]);
   useEffect(() => {
-    fetch("http://192.168.9.200:3000/products")
-        // fetch("http://localhost:3000/products")
+    // fetch("http://192.168.9.200:3000/products")
+        fetch("http://localhost:3001/products")
       .then((res) => {
         return res.json();
       })
@@ -37,6 +37,7 @@ const Filterr = ({
     setSize([]);
     setColor([]);
   }
+  console.log(gender)
   return (
     <div
       className=""
@@ -45,7 +46,7 @@ const Filterr = ({
         marginTop: "25px",
         marginBottom: "30px",
         borderRadius: "10px",
-        width: "400px",
+        width: "auto",
         padding: "16px",
         backgroundColor: "rgba(209, 209, 209, 0.9)",
       }}
@@ -90,7 +91,8 @@ const Filterr = ({
             <input
               type="checkbox"
               value={category}
-              onChange={(e) => setGender(e.target.value)}
+              checked={gender.includes(category)}
+              onChange={(e) => setGender([...gender, e.target.value])}
             />
             {category}
           </label>

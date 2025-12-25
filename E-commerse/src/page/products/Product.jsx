@@ -16,8 +16,8 @@ const [gender, setGender] = useState([])
 const [color, setColor] = useState([])
 const [size, setSize] = useState([])
       useEffect(()=>{
-          fetch('http://192.168.9.200:3000/products?brand='+ brand +'&category=' + gender +'&colors=' + color +'&sizes=' + size)
-              // fetch('http://localhost:3000/products?brand='+ brand +'&category=' + gender +'&colors=' + color +'&sizes=' + size)
+          // fetch('http://192.168.9.200:3000/products?brand='+ brand +'&category=' + gender +'&colors=' + color +'&sizes=' + size)
+              fetch('http://localhost:3001/products?brand='+ brand +'&category=' + gender +'&colors=' + color +'&sizes=' + size)
           .then(res=>{
               return res.json();
           })
@@ -28,14 +28,14 @@ const [size, setSize] = useState([])
           })
        
       },[ brand , gender , color , size])
-       console.log(color)
+    
   return (
     <>
  
     <div
 
     >
-    <Track />
+    <Track title="Product"/>
     </div>
 <div
   className="d-flex"

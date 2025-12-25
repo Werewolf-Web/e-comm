@@ -6,12 +6,13 @@ import men from '../../assets/men.png'
 import women from '../../assets/women.png'
 import Categories from '../../components/categories/Categories'
 import thum from '../../assets/thum.webp'
+import { Link } from "react-router-dom";
 
 import Newsletter from '../../components/news/Newsletter'
 import Aboutdetail from '../../components/aboutdetail/Aboutdetail'
 import Slidebr from '../../components/brandslide/Slidebr'
 import Collection from '../collection/Collection'
-import Seall from '../../components/seall/Seall'
+import Seall from '../../components/sell/Seall'
 
 
 const Home = () => {
@@ -122,8 +123,14 @@ const Home = () => {
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
-            <button className="btn btn-dark"><a href="" style={{textDecoration:"none",color:"white"}}>Shop Now</a></button>
-          </div>
+         <button className="btn btn-dark">
+  <Link
+    to="/products?category=male"
+    style={{ textDecoration: "none", color: "white" }}
+  >
+    Shop Now
+  </Link>
+</button>   </div>
 
           {/* IMAGE */}
           <img

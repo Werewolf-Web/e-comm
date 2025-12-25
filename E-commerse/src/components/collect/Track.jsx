@@ -17,12 +17,12 @@ const Track = (props) => {
     height: "110px",
   }}
 >
-  <h1>Product</h1>
+  <h1>{props.title}</h1>
   <div className="d-flex gap-3" >
     <a href="/" style={{ textDecoration: "none",color:"white" }}>Home</a>
-    <span> > </span>
+    <span> &gt;  </span>
     <a href="/products" style={{ textDecoration: "none",color:"white" }}>Products</a>
-    <span> > </span>
+    <span> &gt;  </span>
     <p>{props.name}</p>
   </div>
 </div>

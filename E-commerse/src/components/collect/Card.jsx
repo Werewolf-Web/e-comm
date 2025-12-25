@@ -13,11 +13,8 @@ const Card = ({ item }) => {
 
 
   return (
-
-
-    <> 
-
     
+    <>     
     <Link to={`/products/${item.id}`} style={{textDecoration:"none",color:"black"}}>
     
        <div style={{ width: "270px" ,height:"355px",backgroundColor:"rgba(193, 190, 190, 0.7)",borderRadius:"8px"}}>
@@ -69,6 +66,7 @@ const Card = ({ item }) => {
       </div>
     </div>
     </Link>
+
     </>
 
   );

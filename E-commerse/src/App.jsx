@@ -8,6 +8,7 @@ import Register from "./auth/register/Register";
 import Newsletter from "./components/news/Newsletter";
 import Forpass from "./auth/forget-password/Forpass";
 import ProductDetail from "./page/products/ProductDetail";
+import Cart from "./page/cart/Cart";
 
 const App = () => {
   return (
@@ -20,6 +21,8 @@ const App = () => {
         <Route path="/auth/register" element={<Register />} />
         <Route path="/auth/forget-password" element={<Forpass />} />
         <Route path="/products/:id" element={<ProductDetail />} />
+           {/* <Route path="/products/:category" element={<ProductDetail />} /> */}
+        <Route path="/cart" element={<Cart/>} />
       </Routes>
       <Newsletter />
     </>
