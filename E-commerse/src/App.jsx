@@ -10,6 +10,7 @@ import Forpass from "./auth/forget-password/Forpass";
 import ProductDetail from "./page/products/ProductDetail";
 import Cart from "./page/cart/Cart";
 import Wishlist from "./profile/whise/Wishlist";
+import Changepass from "./dashbord/setting/changepassword/Changepass";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />
         <Route path="/auth/forget-password" element={<Forpass />} />
+        <Route path="/dashboard/settings/change-password" element={<Changepass/>}/>
         <Route path="/products/:id" element={<ProductDetail />} />
            {/* <Route path="/products/:category" element={<ProductDetail />} /> */}
         <Route path="/cart" element={<Cart/>} />
