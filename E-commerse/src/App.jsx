@@ -9,6 +9,7 @@ import Newsletter from "./components/news/Newsletter";
 import Forpass from "./auth/forget-password/Forpass";
 import ProductDetail from "./page/products/ProductDetail";
 import Cart from "./page/cart/Cart";
+import Wishlist from "./profile/whise/Wishlist";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/products/:id" element={<ProductDetail />} />
            {/* <Route path="/products/:category" element={<ProductDetail />} /> */}
         <Route path="/cart" element={<Cart/>} />
+        <Route path="/profile/wishlist" element={<Wishlist/>} />
       </Routes>
       <Newsletter />
     </>

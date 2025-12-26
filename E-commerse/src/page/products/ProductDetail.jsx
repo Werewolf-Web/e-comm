@@ -62,7 +62,11 @@ const ProductDetail = () => {
 
 function pasArr() {
   if (!colerr) {
-    alert("Please select a color first!");
+    alert("Please select a color !");
+    return;
+  }
+  if(!sizee){
+    alert("Please select a size !")
     return;
   }
 const Totalprice = (finalaprice * quantity).toFixed(2);

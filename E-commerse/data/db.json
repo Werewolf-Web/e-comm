@@ -40,8 +40,8 @@
       "discount": 10.0,
       "brand": "Louis Vuitton",
       "category": "unisex",
-      "sizes": [],
-      "colors": [],
+         "sizes": ["S", "M", "L"],
+      "colors": ["Black", "White"],
       "stock": 273,
       "images": [
         "https://commercehope-app.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdcuwtg4h1%2Fimage%2Fupload%2Fv1741721817%2FS-319-1_gbx49h.jpg&w=1920&q=75",
@@ -106,8 +106,8 @@
       "discount": 10.0,
       "brand": "Louis Vuitton",
       "category": "unisex",
-      "sizes": [],
-      "colors": [],
+         "sizes": ["8", "9", "10", "11"],
+      "colors": ["Red", "Blue", "Black"],
       "stock": 273,
       "images": [
         "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg",

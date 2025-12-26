@@ -29,10 +29,10 @@ const Regpass = () => {
       password: Password,
     };
 
-    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+    const existingUsers = JSON.parse(localStorage.getItem("Total_users")) || [];
     const updatedUsers = [...existingUsers, payload];
 
-    localStorage.setItem("users", JSON.stringify(updatedUsers));
+    localStorage.setItem("Total_users", JSON.stringify(updatedUsers));
 
     console.log("Saved Users:", updatedUsers);
     setFirstname("");

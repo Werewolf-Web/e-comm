@@ -3,6 +3,7 @@ import Track from '../../components/collect/Track'
 import Buttonback from '../../components/button/Buttonback'
 
 const Cart = () => {
+  
   return (
     <>
     <div style={{marginBottom:"25px"}}>
@@ -10,7 +11,9 @@ const Cart = () => {
     </div>
         <Buttonback url="/products"/>
     <div>
-      
+      <div>
+
+      </div>
 
     </div>
     </>

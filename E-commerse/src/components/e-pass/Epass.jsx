@@ -14,7 +14,7 @@ const handleLogin = () => {
     return;
   }
 
-  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const users = JSON.parse(localStorage.getItem("Total_users")) || [];
 
   const loggedUser = users.find(
     user => user.email === Email && user.password === Password
@@ -22,7 +22,7 @@ const handleLogin = () => {
 
   if (loggedUser) {
     // store only logged-in user
-    localStorage.setItem("currentUser", JSON.stringify(loggedUser));
+    localStorage.setItem("Current_User", JSON.stringify(loggedUser));
 
     alert("Login Successful");
   } else {

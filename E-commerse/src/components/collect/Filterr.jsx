@@ -1,140 +1,136 @@
 import React, { useEffect, useState } from "react";
-import MaleIcon from "@mui/icons-material/Male";
-import FemaleIcon from "@mui/icons-material/Female";
-import TransgenderIcon from "@mui/icons-material/Transgender";
+
 const Filterr = ({
-  
   setBrand,
+  brand,
   gender,
   setGender,
-  
-  setColor,
   color,
+  setColor,
+  size,
   setSize,
 }) => {
   const [product, setProduct] = useState([]);
+
   useEffect(() => {
-    // fetch("http://192.168.9.200:3000/products")
-        fetch("http://localhost:3001/products")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        // console.log(data[0])
-        setProduct(data);
-      });
+    fetch("http://localhost:3001/products")
+      .then((res) => res.json())
+      .then((data) => setProduct(data));
   }, []);
 
   const uniqueBrands = [...new Set(product.map((p) => p.brand))];
   const uniqueCategories = [...new Set(product.map((p) => p.category))];
-  const uniqueColors = [...new Set(product.flatMap((item) => item.colors))];
-
-  const uniqueSizes = [...new Set(product.flatMap((item) => item.sizes))];
+  const uniqueColors = [...new Set(product.flatMap((p) => p.colors || []))];
+  const uniqueSizes = [...new Set(product.flatMap((p) => p.sizes || []))];
 
   function Clearall() {
     setBrand("");
     setGender([]);
-    setSize([]);
     setColor([]);
+    setSize([]);
   }
-  console.log(gender)
+
   return (
     <div
-      className=""
       style={{
-        marginLeft: "70px",
-        marginTop: "25px",
-        marginBottom: "30px",
-        borderRadius: "10px",
-        width: "auto",
+        marginLeft:"50px",
+        marginTop:"30px",
+        width: "230px",
         padding: "16px",
-        backgroundColor: "rgba(209, 209, 209, 0.9)",
+        background: "#d1d1d1",
+        borderRadius: "10px",
       }}
     >
-      {/* Brand */}
-      <div style={{ marginBottom: "16px" }}>
-        <div className="d-flex">
-          <h4>Brand</h4>
-          <button
-            style={{
-              height: "25px",
-              marginLeft: "33px",
-              marginBottom: "19px",
-              backgroundColor: "#fff",
-              borderRadius: "5px",
+      {/* BRAND */}
+      <h4>Brand</h4>
+      {uniqueBrands.map((b, i) => (
+        <label key={i} style={{ display: "block" }}>
+          <input
+            type="radio"
+            name="brand"
+            value={b}
+            checked={brand === b}
+            onChange={(e) => setBrand(e.target.value)}
+          />{" "}
+          {b}
+        </label>
+      ))}
+
+      <hr />
+
+      {/* GENDER */}
+      <h4>Gender</h4>
+      {uniqueCategories.map((cat, i) => (
+        <label key={i} style={{ display: "block" }}>
+          <input
+            type="checkbox"
+            checked={gender.includes(cat)}
+            onChange={(e) => {
+              if (e.target.checked) {
+                setGender([...gender, cat]);
+              } else {
+                setGender(gender.filter((g) => g !== cat));
+              }
             }}
-            onClick={Clearall}
-          >
-            Clear All
-          </button>
-        </div>
+          />{" "}
+          {cat}
+        </label>
+      ))}
 
-        {uniqueBrands.map((brand, index) => (
-          <label key={index} style={{ display: "flex", gap: "8px" }}>
-            <input
-              type="radio"
-              name="brand" // same name = one selection
-              value={brand} // value is brand
-  
-              onChange={(e) => setBrand(e.target.value)}
-            />
-            {brand}
-          </label>
-        ))}
-      </div>
+      <hr />
 
-      {/* Category */}
-      <div style={{ marginBottom: "16px" }}>
-        <h4>Gender</h4>
-        {uniqueCategories.map((category, index) => (
-          <label key={index} style={{ display: "flex", gap: "8px" }}>
-            <input
-              type="checkbox"
-              value={category}
-              checked={gender.includes(category)}
-              onChange={(e) => setGender([...gender, e.target.value])}
-            />
-            {category}
-          </label>
-        ))}
-      </div>
+      {/* COLORS */}
+      <h4>Colors</h4>
+      {uniqueColors.map((c, i) => (
+        <label key={i} style={{ display: "block" }}>
+          <input
+            type="checkbox"
+            checked={color.includes(c)}
+            onChange={(e) => {
+              if (e.target.checked) {
+                setColor([...color, c]);
+              } else {
+                setColor(color.filter((x) => x !== c));
+              }
+            }}
+          />{" "}
+          {c}
+        </label>
+      ))}
 
-      {/* Colors */}
-      <div style={{ marginBottom: "16px" }}>
-        <h4>Colors</h4>
-  {uniqueColors.map((colorItem, index) => (
-  <label key={index} style={{ display: "flex", gap: "8px" }}>
-    <input
-      type="checkbox"
-      checked={color.includes(colorItem)}
-      onChange={(e) => {
-        if (e.target.checked) {
-          setColor([...color, colorItem]);
-        } else {
-          setColor(color.filter((c) => c !== colorItem));
-        }
-      }}
-    />
-    {colorItem}
-  </label>
-))}
+      <hr />
 
-      </div>
+      {/* SIZES */}
+      <h4>Sizes</h4>
+      {uniqueSizes.map((s, i) => (
+        <label key={i} style={{ display: "block" }}>
+          <input
+            type="checkbox"
+            checked={size.includes(s)}
+            onChange={(e) => {
+              if (e.target.checked) {
+                setSize([...size, s]);
+              } else {
+                setSize(size.filter((x) => x !== s));
+              }
+            }}
+          />{" "}
+          {s}
+        </label>
+      ))}
 
-      {/* Sizes */}
-      <div>
-        <h4>Sizes</h4>
-        {uniqueSizes.map((size, index) => (
-          <label key={index} style={{ display: "flex", gap: "8px" }}>
-            <input
-              type="checkbox"
-              value={size}
-              onChange={(e) => setSize(e.target.value)}
-            />
-            {size}
-          </label>
-        ))}
-      </div>
+      <button
+        onClick={Clearall}
+        style={{
+          marginTop: "15px",
+          width: "100%",
+          padding: "6px",
+          background: "#fff",
+          borderRadius: "5px",
+        }}
+      >
+        Clear All
+      </button>
     </div>
   );
 };
