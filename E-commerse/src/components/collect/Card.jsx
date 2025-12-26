@@ -19,42 +19,47 @@ const Card = ({ item }) => {
 
   // 🔹 Add / Remove Wishlist
   const updatedWishlists = () => {
-    const wishlist =
-      JSON.parse(localStorage.getItem("wishlist")) || [];
+  const wishlist =
+    JSON.parse(localStorage.getItem("wishlist")) || [];
 
-    const isAlreadyAdded = wishlist.some(
-      (product) => product.id === item.id
-    );
-
-    if (isAlreadyAdded) {
-      alert("Already added to wishlist");
-      return;
-    }
-
+  if (isWishlisted) {
+    // REMOVE from wishlist
+    const updated = wishlist.filter((p) => p.id !== item.id);
+    localStorage.setItem("wishlist", JSON.stringify(updated));
+    setIsWishlisted(false);
+  } else {
+    // ADD to wishlist
     const payload = {
       id: item.id,
       name: item.name,
       price: item.price,
       discount: item.discount,
       images: item.images,
-      quantity: item.quantity,
+      quantity: 1,
     };
 
-    const updatedList = [...wishlist, payload];
-    localStorage.setItem("wishlist", JSON.stringify(updatedList));
+    localStorage.setItem(
+      "wishlist",
+      JSON.stringify([...wishlist, payload])
+    );
     setIsWishlisted(true);
-  };
+  }
+};
+
 
   return (
     <div
       style={{
-        width: "270px",
-        height: "355px",
+        width: "100%",
+        maxWidth: "clamp(180px, 85vw, 270px)",
+        minHeight: "clamp(300px, 80vw, 355px)",
         backgroundColor: "rgba(193, 190, 190, 0.7)",
         borderRadius: "8px",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
-      <div className="card-body d-flex flex-column p-2">
+      <div className="card-body d-flex flex-column p-2" style={{ flex: 1 }}>
         <Link
           to={`/products/${item.id}`}
           style={{ textDecoration: "none", color: "black" }}
@@ -63,17 +68,18 @@ const Card = ({ item }) => {
             src={item.images[0]}
             alt={item.name}
             style={{
-              height: "220px",
-              width: "250px",
+              height: "auto",
+              width: "100%",
+              maxHeight: "clamp(140px, 50vw, 220px)",
+              aspectRatio: "1/1",
               objectFit: "cover",
-              margin: "auto",
               backgroundColor: "white",
               borderRadius: "8px",
-              marginBottom: "8px",
+              marginBottom: "clamp(6px, 1vw, 8px)",
             }}
           />
 
-          <h6 className="card-title mb-1 text-truncate">
+          <h6 className="card-title mb-1 text-truncate" style={{ fontSize: "clamp(0.875rem, 1vw, 1rem)" }}>
             {item.name}
           </h6>
 
@@ -82,7 +88,7 @@ const Card = ({ item }) => {
             <small className="ms-1">(5)</small>
           </div>
 
-          <div className="d-flex align-items-center gap-1 mb-1">
+          <div className="d-flex align-items-center gap-1 mb-1" style={{ fontSize: "clamp(0.75rem, 1vw, 0.875rem)" }}>
             ${finalPrice}
             <span className="text-success small">
               -{item.discount}%
@@ -91,23 +97,21 @@ const Card = ({ item }) => {
         </Link>
 
         {/* ACTION BUTTONS */}
-        <div className="mt-auto d-flex justify-content-between">
+        <div className="mt-auto d-flex justify-content-between gap-2">
           <Link
             to={`/products/${item.id}`}
-            className="btn btn-outline-primary btn-sm"
-            style={{ width: "40%" }}
+            className="btn btn-outline-primary btn-sm flex-grow-1"
           >
             <VisibilityIcon fontSize="small" />
           </Link>
 
           <button
-            className={`btn btn-sm ${
+            className={`btn btn-sm flex-grow-1 ${
               isWishlisted ? "btn-danger" : "btn-outline-danger"
             }`}
             onClick={updatedWishlists}
-            style={{ width: "40%" }}
           >
-            <FavoriteBorderIcon style={{ fontSize: "20px" }} />
+            <FavoriteBorderIcon style={{ fontSize: "clamp(16px, 2vw, 20px)" }} />
           </button>
         </div>
       </div>

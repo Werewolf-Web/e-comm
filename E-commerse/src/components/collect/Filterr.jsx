@@ -35,6 +35,7 @@ const Filterr = ({
       style={{
         marginLeft:"50px",
         marginTop:"30px",
+        height:"900px",
         width: "230px",
         padding: "16px",
         background: "#d1d1d1",
