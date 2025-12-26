@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import EmailIcon from "@mui/icons-material/Email";
 import { useNavigate } from "react-router-dom";
 
 
 const Forpass = () => {
   const navigate = useNavigate();
+const [Email, setEmail] = useState("");
+const currentUser =
+  JSON.parse(localStorage.getItem("Current_User")) || null;
+
+
+function checkMail() {
+  if (!currentUser) {
+    alert("No user logged in");
+    return;
+  }
+
+  if (!Email) {
+    alert("Please enter your email");
+    return;
+  }
+
+  if (currentUser.email.toLowerCase() === Email.toLowerCase()) {
+ navigate("/dashboard/settings/change-password")
+  } else {
+    alert("Invalid email");
+ navigate("/auth/login")}
+  
+}
 
 
   return (
@@ -73,6 +96,8 @@ const Forpass = () => {
                   borderRadius: "5px",
                   border: "1px solid #d7d7d7ff"
                 }}
+                   value={Email}
+  onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
@@ -88,6 +113,8 @@ const Forpass = () => {
                 alignItems: "center",
                 justifyContent: "center"
               }}
+                    //  onClick={() => navigate("/dashboard/settings/change-password")}
+                          onClick={checkMail}
             >
               Send Email
             </button>
@@ -106,6 +133,7 @@ const Forpass = () => {
                 justifyContent: "center"
               }}
              onClick={() => navigate("/auth/login")}
+      
             >
               Back
             </button>

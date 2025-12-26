@@ -30,6 +30,17 @@ const Regpass = () => {
     };
 
     const existingUsers = JSON.parse(localStorage.getItem("Total_users")) || [];
+
+
+  // 🔍 Check if email already exists
+  const isEmailExists = existingUsers.some(
+    (user) => user.email === Email
+  );
+
+  if (isEmailExists) {
+    alert("Email already exists. Please use a different email.");
+    return;
+  }
     const updatedUsers = [...existingUsers, payload];
 
     localStorage.setItem("Total_users", JSON.stringify(updatedUsers));
@@ -42,20 +53,9 @@ const Regpass = () => {
     setEmail("");
     setPassword("");
     alert("Registration Successful");
-    // // basic validation
-    // if (
-    //   !Firstname ||
-    //   !Lastname ||
-    //   gender === "Select Gender" ||
-    //   !Phone ||
-    //   !Email ||
-    //   !Password
-    // ) {
-    //   alert("Please fill all fields");
-    //   return;
-    // }
+    
+      
 
-    // API call can go here
   };
 
   return (
