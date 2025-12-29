@@ -24,7 +24,6 @@ const App = () => {
         <Route path="/auth/forget-password" element={<Forpass />} />
         <Route path="/dashboard/settings/change-password" element={<Changepass/>}/>
         <Route path="/products/:id" element={<ProductDetail />} />
-           {/* <Route path="/products/:category" element={<ProductDetail />} /> */}
         <Route path="/cart" element={<Cart/>} />
         <Route path="/profile/wishlist" element={<Wishlist/>} />
       </Routes>

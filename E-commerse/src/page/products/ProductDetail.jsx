@@ -12,6 +12,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookSharpIcon from "@mui/icons-material/FacebookSharp";
+import noproduct from "../../assets/noProduct.jpg"
 import "./ProductDetail1.css";
 
 // Import Swiper React components
@@ -46,7 +47,33 @@ const ProductDetail = () => {
       .catch((err) => console.error(err));
   }, [id]);
 
-  if (!product) return <p>Loading...</p>;
+  if (!product) return<div style={{
+  backgroundColor: "#ffffffff",
+  height: "450px",
+  width: "100%",
+  display: "flex",           // Add this
+  justifyContent: "center",  // Add this for horizontal centering
+  alignItems: "center"       // Add this for vertical centering
+}}>
+  <div style={{
+    backgroundColor: "white",
+    height: "50vh",
+    width: "50%",
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }}>
+     <img 
+      src={noproduct} 
+      alt="No products found" 
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "contain"  // Maintain aspect ratio, fit within container
+      }}
+    />
+  </div>
+</div>;
   const finalaprice = product.price - (product.discount * product.price) / 100;
 
   const handleChange = (event, newValue) => {
@@ -224,7 +251,10 @@ const Totalprice = (finalaprice * quantity).toFixed(2);
                 <strong>Brand : </strong> {product.brand}
               </p>
               <p style={{ marginBottom: "7px" }}>
-                <strong>Category : </strong> {product.category}
+                <strong>gender : </strong> {product.category}
+              </p>
+                 <p style={{ marginBottom: "7px" }}>
+                <strong>Category : </strong> {product.pro_category}
               </p>
               <p style={{ marginBottom: "7px" }}>
                 <strong>Original Price :</strong> ${product.price}

@@ -2,11 +2,11 @@ import React from 'react'
 import cort from '../../assets/cort.webp'
 import earring from '../../assets/earring.webp'
 import bag from '../../assets/bag.webp'
-import phone1 from '../../assets/phone.jpeg'
+import shoes1 from '../../assets/shoes1.webp'
 import pent from '../../assets/feshion.jpeg'   
-import test from '../../assets/test.jpeg'
+import perfume from '../../assets/perfume.webp'
 import './Categories.css'
-
+import { Link } from "react-router-dom";
 const Categories = () => {  
   return (
     <>
@@ -20,35 +20,44 @@ const Categories = () => {
         <div 
         style={{height:"200px"}}>
           <div className="categories-row">
+
+<Link                 to="/products?category=male" style={{textDecoration:"none", color:"black"}}>
   <div className="category-item">
     <img src={cort} alt="" />
     <h3>Men Clothes</h3>
-  </div>
+  </div></Link>
 
+<Link         to="/products?pro_category=accessories" style={{textDecoration:"none", color:"black"}}>
   <div className="category-item">
     <img src={earring} alt="" />
     <h3>Accessories</h3>
-  </div>
+  </div></Link>
 
+<Link   to="/products?pro_category=bag" style={{textDecoration:"none", color:"black"}}>
   <div className="category-item">
     <img src={bag} alt="" />
     <h3>Bags</h3>
-  </div>
+  </div></Link>
 
+<Link to="/products?pro_category=shoes" style={{textDecoration:"none", color:"black"}}>
   <div className="category-item">
-    <img src={phone1} alt="" />
-    <h3>Phone</h3>
-  </div>
+    <img src={shoes1} alt="" />
+    <h3>Shoes</h3>
+  </div></Link>
 
+
+<Link to="/products?pro_category=clothing" style={{textDecoration:"none", color:"black"}}>
   <div className="category-item">
     <img src={pent} alt="" />
     <h3>Fashion</h3>
-  </div>
+  </div></Link>
 
+
+<Link to="/products?pro_category=perfume" style={{textDecoration:"none", color:"black"}}>
   <div className="category-item">
-    <img src={test} alt="" />
-    <h3>Test</h3>
-  </div>
+    <img src={perfume} alt="" />
+    <h3>Perfume</h3>
+  </div></Link>
 </div>
 
         </div>

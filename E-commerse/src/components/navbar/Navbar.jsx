@@ -4,6 +4,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
+import { Link } from "react-router-dom";
+
 
 const Navbar = () => {
   return (
@@ -13,9 +15,9 @@ const Navbar = () => {
       <div className="container-fluid">
         
         {/* Logo */}
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           <img src={logo} alt="logo" style={{ height: "40px" }} />
-        </a>
+        </Link>
 
         {/* Toggle Button */}
         <button
@@ -40,34 +42,34 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item dropdown">
-              <a
+              <Link
                 className="nav-link dropdown-toggle"
-                href="#"
+                to="/products"
                 role="button"
                 data-bs-toggle="dropdown"
               >
                 Categories
-              </a>
+              </Link>
               <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="#">Men Clothes</a></li>
-                <li><a className="dropdown-item" href="#">Accessories</a></li>
-                <li><a className="dropdown-item" href="#">Bags</a></li>
-                <li><a className="dropdown-item" href="#">Phone</a></li>
-                <li><a className="dropdown-item" href="#">Fashion</a></li>
+                <li><Link className="dropdown-item" to="/products?pro_category=accessories">Accessories</Link></li>
+                <li><Link className="dropdown-item" to="/products?category=men">Men Clothes</Link></li>
+                <li><Link className="dropdown-item" to="/products?pro_category=shoes">Shoes</Link></li>
+                <li><Link className="dropdown-item" to="/products?pro_category=bag">Bags</Link></li>
+                <li><Link className="dropdown-item" to="/products?pro_category=clothing">Fashion</Link></li>
               </ul>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="/products">Products</a>
+              <Link className="nav-link" to="/products">Products</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Men</a>
+              <Link className="nav-link" to="/products?category=men">Men</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Women</a>
+              <Link className="nav-link" to="/products?category=women">Women</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Kids</a>
+              <Link className="nav-link" to="/products?category=kids">Kids</Link>
             </li>
           </ul>
 

@@ -9,6 +9,8 @@ const Filterr = ({
   setColor,
   size,
   setSize,
+  setPro_cate,
+  Pro_cate,
 }) => {
   const [product, setProduct] = useState([]);
 
@@ -22,20 +24,23 @@ const Filterr = ({
   const uniqueCategories = [...new Set(product.map((p) => p.category))];
   const uniqueColors = [...new Set(product.flatMap((p) => p.colors || []))];
   const uniqueSizes = [...new Set(product.flatMap((p) => p.sizes || []))];
-
+  const uniqueProcate = [
+    ...new Set(product.flatMap((p) => p.pro_category || [])),
+  ];
   function Clearall() {
     setBrand("");
     setGender([]);
     setColor([]);
     setSize([]);
+    setPro_cate([]);
   }
 
   return (
     <div
       style={{
-        marginLeft:"50px",
-        marginTop:"30px",
-        height:"900px",
+        marginLeft: "50px",
+        marginTop: "30px",
+        height: "auto",
         width: "230px",
         padding: "16px",
         background: "#d1d1d1",
@@ -80,45 +85,79 @@ const Filterr = ({
 
       <hr />
 
-      {/* COLORS */}
-      <h4>Colors</h4>
-      {uniqueColors.map((c, i) => (
+      {/* PRODUCT CATEGORY */}
+      <h4>Product Category</h4>
+      {uniqueProcate.map((c, i) => (
         <label key={i} style={{ display: "block" }}>
           <input
             type="checkbox"
-            checked={color.includes(c)}
+            checked={Pro_cate.includes(c)}
             onChange={(e) => {
               if (e.target.checked) {
-                setColor([...color, c]);
+                setPro_cate([...Pro_cate, c]);
               } else {
-                setColor(color.filter((x) => x !== c));
+                setPro_cate(Pro_cate.filter((x) => x !== c));
               }
             }}
           />{" "}
           {c}
         </label>
       ))}
-
       <hr />
-
+      {/* COLORS */}
+     <h4>Colors</h4>
+<div style={{
+  columnCount: 2, /* Creates 2 columns */
+  columnGap: '10px'
+}}>
+  {uniqueColors.map((c, i) => (
+    <label key={i} style={{ 
+      display: 'block',
+      breakInside: 'avoid', /* Prevent items from breaking across columns */
+      marginBottom: '4px'
+    }}>
+      <input
+        type="checkbox"
+        checked={color.includes(c)}
+        onChange={(e) => {
+          if (e.target.checked) {
+            setColor([...color, c]);
+          } else {
+            setColor(color.filter((x) => x !== c));
+          }
+        }}
+      /> {" "+ c}
+    </label>
+  ))}
+</div>
+      <hr />
       {/* SIZES */}
       <h4>Sizes</h4>
-      {uniqueSizes.map((s, i) => (
-        <label key={i} style={{ display: "block" }}>
-          <input
-            type="checkbox"
-            checked={size.includes(s)}
-            onChange={(e) => {
-              if (e.target.checked) {
-                setSize([...size, s]);
-              } else {
-                setSize(size.filter((x) => x !== s));
-              }
-            }}
-          />{" "}
-          {s}
-        </label>
-      ))}
+<div style={{
+  columnCount: 2, /* Creates 2 columns */
+  columnGap: '10px'
+}}>
+  {uniqueSizes.map((c, i) => (
+    <label key={i} style={{ 
+      display: 'block',
+      breakInside: 'avoid', /* Prevent items from breaking across columns */
+      marginBottom: '4px'
+    }}>
+      <input
+
+        type="checkbox"
+        checked={size.includes(c)}
+        onChange={(e) => {
+          if (e.target.checked) {
+            setColor([...size, c]);
+          } else {
+            setColor(size.filter((x) => x !== c));
+          }
+        }}
+      /> {" "+ c}
+    </label>
+  ))}
+</div>
 
       <button
         onClick={Clearall}
