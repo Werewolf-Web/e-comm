@@ -6,6 +6,7 @@ import Hermes from '../../assets/Hermes-Logo_mpfmin.png'
 import louis from '../../assets/Louise.webp'
 import bag from '../../assets/bag.webp'
 import './slider.css'
+import { Link } from 'react-router-dom'
 
 const Slidebr = () => {
     return (
@@ -22,18 +23,19 @@ const Slidebr = () => {
                 
                     <div className='caurosel'>
                         <div className='group'>
-                          <a href="./products">  <div className='card'><img className='set' src={samsang} width="150px" height="100px" alt="" /></div></a>
-                          <a href="">  <div className='card'><img className='set' src={zara} width="150px" height="100px" alt="" /></div></a>
-                          <a href="">  <div className='card'><img className='set' src={nikie} width="150px" height="100px" alt="" /></div></a>
-                          <a href="">  <div className='card'><img className='set' src={bag} width="150px" height="100px" alt="" /></div></a>
-                          <a href="">  <div className='card'><img className='set' src={louis} width="150px" height="100px" alt="" /></div></a>
-                         </div>
+                          <Link to="/products?brand=Lululemon">  <div className='card'><img className='set' src={samsang} width="150px" height="100px" alt="" /></div></Link>
+                          <Link to="/products?brand=Puma">  <div className='card'><img className='set' src={zara} width="150px" height="100px" alt="" /></div></Link>
+                          <Link to="/products?brand=Nike">  <div className='card'><img className='set' src={nikie} width="150px" height="100px" alt="" /></div></Link>
+                          <Link to="/products?brand=bag">  <div className='card'><img className='set' src={bag} width="150px" height="100px" alt="" /></div></Link>
+                          <Link to="/products?brand=Louis Vuitton">  <div className='card'><img className='set' src={louis} width="150px" height="100px" alt="" /></div></Link>
+                  </div>
                           <div aria-hidden='true' className='group'>
-                          <a href="">  <div className='card'><img className='set' src={zara} width="150px" height="100px" alt="" /></div></a>
-                          <a href="./products">  <div className='card'><img className='set' src={samsang} width="150px" height="100px" alt="" /></div></a>
-                          <a href="">  <div className='card'><img className='set' src={nikie} width="150px" height="100px" alt="" /></div></a>
-                          <a href="">  <div className='card'><img className='set' src={bag} width="150px" height="100px" alt="" /></div></a>
-                          <a href="">  <div className='card'><img className='set' src={louis} width="150px" height="100px" alt="" /></div></a>
+                          <Link to="/products?brand=Lululemon">   <div className='card'><img className='set' src={zara} width="150px" height="100px" alt="" /></div></Link>
+                          <Link to="/products?brand=Puma">  <div className='card'><img className='set' src={samsang} width="150px" height="100px" alt="" /></div></Link>
+                          <Link to="/products?brand=bag">   <div className='card'><img className='set' src={bag} width="150px" height="100px" alt="" /></div></Link>
+                         
+                          <Link to="/products?brand=Puma">  <div className='card'><img className='set' src={samsang} width="150px" height="100px" alt="" /></div></Link>
+                          <Link to="/products?brand=Louis Vuitton">  <div className='card'><img className='set' src={louis} width="150px" height="100px" alt="" /></div></Link>
                          </div>
                     </div>
 

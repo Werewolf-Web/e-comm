@@ -12,9 +12,12 @@ const Product = () => {
   const [searchParams] = useSearchParams();
   const categoryFromURL = searchParams.get("category");
   const procategoryFromurl = searchParams.get("pro_category")
+  const BrandUrl = searchParams.get("brand");
 
   const [product, setProduct] = useState([]);
-  const [brand, setBrand] = useState("");
+  const [brand, setBrand] = useState(
+    BrandUrl ? [BrandUrl] : []
+  );
   const [gender, setGender] = useState(
     categoryFromURL ? [categoryFromURL] : []
   );

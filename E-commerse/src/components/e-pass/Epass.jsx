@@ -30,6 +30,7 @@ const handleLogin = () => {
   }
   setEmail("");
   setPassword("");
+  window.location.href = "/";
 };
 
 

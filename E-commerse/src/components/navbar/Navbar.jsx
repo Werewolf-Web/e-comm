@@ -63,10 +63,10 @@ const Navbar = () => {
               <Link className="nav-link" to="/products">Products</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/products?category=men">Men</Link>
+              <Link className="nav-link" to="/products?category=male">Men</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/products?category=women">Women</Link>
+              <Link className="nav-link" to="/products?category=female">Women</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/products?category=kids">Kids</Link>
@@ -75,10 +75,10 @@ const Navbar = () => {
 
           {/* Icons */}
           <div className="d-flex align-items-center gap-3">
-            <a href="#"><SearchIcon style={{color: "#666",  fontSize:"26px" }}/></a>
-            <a href="/cart"><LocalMallIcon style={{ fontSize:"26px",color:"#3341d9ff"}}/></a>
-            <a href="/profile/wishlist"><FavoriteBorderIcon style={{color: "#FF0000", fontSize:"26px"}}/></a>
-            <a href="/auth/login"><AccountCircleSharpIcon style={{fontSize:"38px",color: "#c1c1c1ff"}}/></a>
+            <Link to="#"><SearchIcon style={{color: "#666",  fontSize:"26px" }}/></Link>
+            <Link to="/cart"><LocalMallIcon style={{ fontSize:"26px",color:"#3341d9ff"}}/></Link>
+            <Link to="/profile/wishlist"><FavoriteBorderIcon style={{color: "#FF0000", fontSize:"26px"}}/></Link>
+            <Link to="/auth/login"><AccountCircleSharpIcon style={{fontSize:"38px",color: "#c1c1c1ff"}}/></Link>
           </div>
         </div>
       </div>

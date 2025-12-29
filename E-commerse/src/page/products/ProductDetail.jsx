@@ -89,11 +89,13 @@ const ProductDetail = () => {
 
 function pasArr() {
   if (!colerr) {
-    alert("Please select a color !");
+   document.getElementById('error').innerHTML = "select a color !"
     return;
   }
   if(!sizee){
-    alert("Please select a size !")
+
+   document.getElementById('error').innerHTML = "select a size !"
+
     return;
   }
 const Totalprice = (finalaprice * quantity).toFixed(2);
@@ -293,9 +295,12 @@ const Totalprice = (finalaprice * quantity).toFixed(2);
             onChange={(e) => setColerr(e.target.value)}
                       />
                       <label htmlFor={`color-${i}`}>{color}</label>
+                 
                     </div>
                   ))}
-                </div>
+                         
+                </div><label id="error" style={{color:"red" ,margin:"0px"}}></label>
+              
               </div>
             )}
 
@@ -324,7 +329,7 @@ const Totalprice = (finalaprice * quantity).toFixed(2);
                       <label htmlFor={`size-${i}`}>{size}</label>
                     </div>
                   ))}
-                </div>
+                </div><label id="error" style={{color:"red" ,margin:"0px"}}></label>
               </div>
             )}
             {/* -------  Quntities  ---------------- */}

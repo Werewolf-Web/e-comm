@@ -27,6 +27,7 @@ const Filterr = ({
   const uniqueProcate = [
     ...new Set(product.flatMap((p) => p.pro_category || [])),
   ];
+  console.log(color)
   function Clearall() {
     setBrand("");
     setGender([]);
@@ -38,13 +39,14 @@ const Filterr = ({
   return (
     <div
       style={{
-        marginLeft: "50px",
+        marginLeft: "80px",
         marginTop: "30px",
         height: "auto",
         width: "230px",
         padding: "16px",
         background: "#d1d1d1",
         borderRadius: "10px",
+        marginBottom:"20px",
       }}
     >
       {/* BRAND */}
@@ -52,10 +54,10 @@ const Filterr = ({
       {uniqueBrands.map((b, i) => (
         <label key={i} style={{ display: "block" }}>
           <input
-            type="radio"
+            type="checkbox"
             name="brand"
             value={b}
-            checked={brand === b}
+            checked={brand.includes(b)}
             onChange={(e) => setBrand(e.target.value)}
           />{" "}
           {b}
@@ -140,7 +142,7 @@ const Filterr = ({
   {uniqueSizes.map((c, i) => (
     <label key={i} style={{ 
       display: 'block',
-      breakInside: 'avoid', /* Prevent items from breaking across columns */
+      breakInside: 'avoid', 
       marginBottom: '4px'
     }}>
       <input
