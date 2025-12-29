@@ -2,36 +2,83 @@ import React, { useState } from "react";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const Epass = () => {
-      const [showPassword, setShowPassword] = useState(false);
-      const [Email, setEmail] = useState("")
-      const [Password, setPassword] = useState("")
-const handleLogin = () => {
-  if (!Email || !Password) {
-    alert("Enter email and password");
-    return;
-  }
+  const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const users = JSON.parse(localStorage.getItem("Total_users")) || [];
+  const handleLogin = () => {
+    const newErrors = {};
 
-  const loggedUser = users.find(
-    user => user.email === Email && user.password === Password
-  );
+    // Email validation
+    if (!Email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
 
-  if (loggedUser) {
-    // store only logged-in user
-    localStorage.setItem("Current_User", JSON.stringify(loggedUser));
+    // Password validation
+    if (!Password) {
+      newErrors.password = "Password is required";
+    } else if (Password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
+    }
 
-    alert("Login Successful");
-  } else {
-    alert("Invalid email or password");
-  }
-  setEmail("");
-  setPassword("");
-  window.location.href = "/";
-};
+    // Set errors and check if there are any
+    setErrors(newErrors);
+    
+    // If there are errors, don't proceed
+    if (Object.keys(newErrors).length > 0) {
+      alert("Please fix the errors in the form");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const users = JSON.parse(localStorage.getItem("Total_users")) || [];
+
+      const loggedUser = users.find(
+        (user) => user.email.toLowerCase() === Email.toLowerCase() && user.password === Password
+      );
+
+      if (loggedUser) {
+        // Store only logged-in user
+        localStorage.setItem("Current_User", JSON.stringify(loggedUser));
+        alert("Login Successful");
+        
+        // Reset form
+        setEmail("");
+        setPassword("");
+        setErrors({});
+        
+        // Redirect to home page
+        window.location.href = "/";
+      } else {
+        alert("Invalid email or password");
+        // Clear password field on failed login (security)
+        setPassword("");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("An error occurred during login");
+    } finally {
+      setLoading(false);
+    }
+    
+  };
+
+  // Helper function to clear error for a specific field
+  const clearError = (fieldName) => {
+    setErrors(prev => ({
+      ...prev,
+      [fieldName]: ""
+    }));
+  };
 
 
   return (
@@ -63,13 +110,22 @@ const handleLogin = () => {
                 height: "45px",
                 paddingLeft: "40px",
                 borderRadius: "10px",
-          
+
                 border: "1px solid #ccc",
               }}
-                           value={Email}
-                  onChange={(e) => setEmail(e.target.value)}
+              value={Email}
+               onChange={(e) => {
+                setEmail(e.target.value);
+                clearError("email");
+              }}
+                disabled={loading}
             />
           </div>
+           {errors.email && (
+            <small style={{ color: "red", fontSize: "12px" }}>
+              {errors.email}
+            </small>
+          )}
         </div>
 
         {/* PASSWORD */}
@@ -86,48 +142,55 @@ const handleLogin = () => {
               }}
             />
             {/* TOGGLE ICON */}
-  {showPassword ? 
-  (
-    <VisibilityIcon
-      onClick={() => setShowPassword(false)}
-      style={{
-        position: "absolute",
-        top: "50%",
-        right: "10px",
-        transform: "translateY(-50%)",
-        cursor: "pointer",
-        color: "#777",
-      }}
-    />
-  ): (
-    <VisibilityOffIcon
-      onClick={() => setShowPassword(true)}
-      style={{
-        position: "absolute",
-        top: "50%",
-        right: "10px",
-        transform: "translateY(-50%)",
-        cursor: "pointer",
-        color: "#777",
-      }}
-    />
-  ) }
+            {showPassword ? (
+              <VisibilityIcon
+                onClick={() => setShowPassword(false)}
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  right: "10px",
+                  transform: "translateY(-50%)",
+                  cursor: "pointer",
+                  color: "#777",
+                }}
+              />
+            ) : (
+              <VisibilityOffIcon
+                onClick={() => setShowPassword(true)}
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  right: "10px",
+                  transform: "translateY(-50%)",
+                  cursor: "pointer",
+                  color: "#777",
+                }}
+              />
+            )}
 
             <input
-             type={showPassword ? "text" : "password"}
+              type={showPassword ? "text" : "password"}
               style={{
                 width: "100%",
                 height: "45px",
                 paddingLeft: "38px",
                 paddingRight: "38px",
-  borderRadius: "10px",
+                borderRadius: "10px",
                 border: "1px solid #ccc",
                 fontSize: "16px",
               }}
-                      value={Password}
-                  onChange={(e) => setPassword(e.target.value)}
+        onChange={(e) => {
+                setPassword(e.target.value);
+                clearError("password");
+              }}
+                disabled={loading}
             />
           </div>
+           {errors.password && (
+            <small style={{ color: "red", fontSize: "12px" }}>
+              {errors.password}
+            </small>
+          )}
         </div>
         <div className="" style={{ marginTop: "15px" }}>
           <div className="form-check ">
@@ -139,7 +202,7 @@ const handleLogin = () => {
                 fontSize: "13px",
                 marginTop: "8px",
                 paddingLeft: "5px",
-          
+
                 border: "1px solid #000000ff",
                 width: "15px",
                 height: "15px",
@@ -173,7 +236,7 @@ const handleLogin = () => {
 
         <div
           className=" w-100 d-flex flex-column align-items-center justify-content-center rounded"
-          style={{ height: "60px" ,marginTop:"10px"}}
+          style={{ height: "60px", marginTop: "10px" }}
         >
           <button
             className="btn btn-primary"
@@ -186,7 +249,7 @@ const handleLogin = () => {
               fontSize: "13px",
               fontWeight: "700",
             }}
-                onClick={handleLogin}
+            onClick={handleLogin}
           >
             Login
           </button>
@@ -196,7 +259,7 @@ const handleLogin = () => {
             <a
               href="/auth/register"
               style={{
-                fontSize:"12px",
+                fontSize: "12px",
                 textDecoration: "none",
                 marginLeft: "4px",
                 color: "#000000ff",
