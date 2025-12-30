@@ -60,8 +60,10 @@ const Epass = () => {
         window.location.href = "/";
       } else {
         alert("Invalid email or password");
-        // Clear password field on failed login (security)
+         // Reset form
+        setEmail("");
         setPassword("");
+        setErrors({});
       }
     } catch (error) {
       console.error("Login error:", error);
