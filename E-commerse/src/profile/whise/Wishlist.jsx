@@ -22,7 +22,7 @@ const Wishlist = () => {
   return (
     <>
       <div style={{ marginBottom: "20px" }}>
-        <Track title="Wishlist" name="Wishlist" />
+        <Track title="Wishlist" name="Wishlist"  nameLink="/products" LName="Products" />
         <Buttonback url="/products" />
       </div>
 

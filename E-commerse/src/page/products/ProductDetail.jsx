@@ -94,25 +94,32 @@ function pasArr() {
   }
   if(!sizee){
 
-   document.getElementById('error').innerHTML = "select a size !"
+   document.getElementById('errorr').innerHTML = "select a size !"
 
     return;
   }
 const Totalprice = (finalaprice * quantity).toFixed(2);
   const cartItem = {
     id: product.id,
+    brand:product.brand,
     name: product.name,
     price: product.price,
     finalaprice: finalaprice,
     size: sizee,
     image: product.images[0],
-
+    available: product.stock,
     color: colerr,
     quantity: quantity,
     Totalprice:Totalprice
   };
+          const localCart = JSON.parse(localStorage.getItem("Total_Cart")) || [];
+        localCart.push(cartItem);
+        localStorage.setItem("Total_Cart", JSON.stringify(localCart));
 
   console.log("Added to cart:", cartItem);
+  setQuantity(1)
+  setColerr("")
+  setSizee("")
 }
 
   return (
@@ -329,7 +336,7 @@ const Totalprice = (finalaprice * quantity).toFixed(2);
                       <label htmlFor={`size-${i}`}>{size}</label>
                     </div>
                   ))}
-                </div><label id="error" style={{color:"red" ,margin:"0px"}}></label>
+                </div><label id="errorr" style={{color:"red" ,margin:"0px"}}></label>
               </div>
             )}
             {/* -------  Quntities  ---------------- */}

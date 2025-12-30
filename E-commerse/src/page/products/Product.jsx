@@ -88,7 +88,7 @@ if (product.length === 0) {
 
   return (
     <>
-      <Track title="Product" />
+      <Track title="Product"  nameLink="/products" LName="Products" />
 
       <div className="d-flex gap-3">
         <Filterr

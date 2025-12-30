@@ -21,7 +21,8 @@ const Track = (props) => {
   <div className="d-flex gap-3" >
     <a href="/" style={{ textDecoration: "none",color:"white" }}>Home</a>
     <span> &gt;  </span>
-    <a href="/products" style={{ textDecoration: "none",color:"white" }}>Products</a>
+    <a href={props.nameLink} style={{ textDecoration: "none",color:"white" }}>{props.LName}</a>
+
     <span> &gt;  </span>
     <p>{props.name}</p>
   </div>
