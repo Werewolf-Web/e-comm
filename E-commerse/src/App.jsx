@@ -11,6 +11,7 @@ import ProductDetail from "./page/products/ProductDetail";
 import Cart from "./page/cart/Cart";
 import Wishlist from "./profile/whise/Wishlist";
 import Changepass from "./dashbord/setting/changepassword/Changepass";
+import Checkout from "./page/checkout/Checkout";
 
 const App = () => {
   return (
@@ -26,6 +27,8 @@ const App = () => {
         <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart/>} />
         <Route path="/profile/wishlist" element={<Wishlist/>} />
+
+        <Route path="/checkout" element={<Checkout/>}/>
       </Routes>
       <Newsletter />
     </>
