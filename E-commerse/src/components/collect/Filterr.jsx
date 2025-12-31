@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
 
 const Filterr = ({
   setBrand,
@@ -19,7 +21,7 @@ const Filterr = ({
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
-
+  const [value, setValue] = React.useState([50, 37]);
   const uniqueBrands = [...new Set(product.map((p) => p.brand))];
   const uniqueCategories = [...new Set(product.map((p) => p.category))];
   const uniqueColors = [...new Set(product.flatMap((p) => p.colors || []))];
@@ -36,6 +38,12 @@ const Filterr = ({
     setPro_cate([]);
   }
 
+function valuetext(value) {
+  return ;
+}
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <div
       style={{
@@ -160,6 +168,21 @@ const Filterr = ({
     </label>
   ))}
 </div>
+   <hr />
+      {/* SIZES */}
+      <h4>Prize</h4> <div style={{}}>
+
+        <Box sx={{ width: 180 }}>
+      <Slider
+        getAriaLabel={() => 'Temperature range'}
+        value={value}
+        onChange={handleChange}
+        valueLabelDisplay="auto"
+        getAriaValueText={valuetext}
+      />
+    </Box>
+</div>
+
 
       <button
         onClick={Clearall}

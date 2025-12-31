@@ -7,7 +7,7 @@ import women from "../../assets/women.png";
 import Categories from "../../components/categories/Categories";
 import thum from "../../assets/thum.webp";
 import { Link } from "react-router-dom";
-
+import "../../index.css"
 import Newsletter from "../../components/news/Newsletter";
 import Aboutdetail from "../../components/aboutdetail/Aboutdetail";
 import Slidebr from "../../components/brandslide/Slidebr";

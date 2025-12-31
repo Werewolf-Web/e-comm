@@ -12,6 +12,9 @@ import Cart from "./page/cart/Cart";
 import Wishlist from "./profile/whise/Wishlist";
 import Changepass from "./dashbord/setting/changepassword/Changepass";
 import Checkout from "./page/checkout/Checkout";
+import Order from "./page/order/Order";
+
+import Error from "./page/Error";
 
 const App = () => {
   return (
@@ -29,6 +32,8 @@ const App = () => {
         <Route path="/profile/wishlist" element={<Wishlist/>} />
 
         <Route path="/checkout" element={<Checkout/>}/>
+        <Route path="*" element={<Error/>} />
+        <Route path="/order" element={<Order/>}/>
       </Routes>
       <Newsletter />
     </>

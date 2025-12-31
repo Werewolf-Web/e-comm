@@ -1,0 +1,54 @@
+/* Small Search Input - Adjusted */
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input {
+  border: none;
+  height: 30px;              /* ⬅ smaller */
+  width: 30px;               /* ⬅ smaller */
+  padding: 6px 28px 6px 10px;
+  outline: none;
+  border-radius: 50%;
+  transition: 0.4s ease-in-out;
+  background-color: #eaeaea; /* ⬅ softer bg */
+  box-shadow: 0 0 2px #ccc;
+  color: #000;
+  font-size: 14px;           /* ⬅ smaller text */
+}
+
+.input::placeholder {
+  color: #999;
+  font-size: 13px;
+}
+
+.icon {
+  position: absolute;
+  right: 4px;
+  width: 26px;               /* ⬅ smaller */
+  height: 26px;
+  border-radius: 50%;
+  background-color: #d1d1d1; /* ⬅ adjusted bg */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+}
+
+.icon:hover {
+  background-color: #bcbcbc;
+}
+
+/* Expand on focus */
+.icon:focus ~ .input,
+.input:focus {
+  width: 180px;              /* ⬅ smaller expand */
+  border-radius: 6px;
+  background-color: #fff;
+  border-bottom: 2px solid #7e4fd4;
+  box-shadow: none;
+}

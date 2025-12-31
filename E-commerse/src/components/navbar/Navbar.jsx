@@ -5,6 +5,7 @@ import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import { Link } from "react-router-dom";
+import Search from "../button/search/Search";
 
 
 const Navbar = () => {
@@ -75,7 +76,7 @@ const Navbar = () => {
 
           {/* Icons */}
           <div className="d-flex align-items-center gap-3">
-            <Link to="#"><SearchIcon style={{color: "#666",  fontSize:"26px" }}/></Link>
+            <Link to="#"><Search style={{color: "#666",  fontSize:"26px" }}/></Link>
             <Link to="/cart"><LocalMallIcon style={{ fontSize:"26px",color:"#3341d9ff"}}/></Link>
             <Link to="/profile/wishlist"><FavoriteBorderIcon style={{color: "#FF0000", fontSize:"26px"}}/></Link>
             <Link to="/auth/login"><AccountCircleSharpIcon style={{fontSize:"38px",color: "#c1c1c1ff"}}/></Link>
