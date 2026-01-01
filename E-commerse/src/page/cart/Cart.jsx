@@ -70,8 +70,8 @@ const handleCheckout = () => {
     "checkoutData",
     JSON.stringify({
       shipping: calculateShipping(),
-      subtotal: calculateSubtotal(),
-      total: calculateTotal(),
+      subtotal: calculateSubtotal().toFixed(2),
+      total: calculateTotal().toFixed(2),
     })
   );
 

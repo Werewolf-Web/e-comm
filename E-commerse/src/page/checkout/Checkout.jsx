@@ -2,14 +2,88 @@ import React, { useState } from "react";
 import Track from "../../components/collect/Track";
 import Buttonback from "../../components/button/Buttonback";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import { Discount } from "@mui/icons-material";
 const Checkout = () => {
   const data = JSON.parse(localStorage.getItem("checkoutData"));
   const Totalcart = JSON.parse(localStorage.getItem("Total_Cart")) || [];
   const CurentUser = JSON.parse(localStorage.getItem("Current_User")) || {};
   const [country, setCountry] = useState("");
+    const navigate = useNavigate();
+  
+    const [address, setAddress] = useState("")
+    const [city, setCity] = useState("")
+    const [postcode, setPostcode] = useState("")
+    const [town, setTown] = useState("")
+
+  
+const [payment, setPayment] = useState("");
+
 
   if (!data) return <h2>No checkout data found</h2>;
+
+ async function handleOrder() {
+
+  if (!address || !city || !town || !postcode || !country || !payment) {
+    alert("Please fill all details");
+    return;
+  }
+
+  if (Totalcart.length === 0) {
+    alert("Your cart is empty");
+    return;
+  }
+
+  const Placeorder = {
+    id: "ORD-" + Date.now(),
+    customer: CurentUser.firstName + " " + CurentUser.lastName,
+    phone: CurentUser.phone,
+    email: CurentUser.email,
+
+    address: {
+      address,
+      city,
+      state: town,
+      postcode,
+      country,
+    },
+
+    paymentMethod: payment,
+    shipping: data.shipping,
+    subtotal: data.subtotal,
+    total: data.total,
+    discount: 0,
+
+    orderItems: Totalcart,
+    orderDate: new Date().toLocaleString(),
+    status: "Placed",
+  };
+
+  try {
+    const response = await fetch("http://localhost:3003/order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Placeorder),
+    });
+
+    if (response.ok) {
+      const orders = JSON.parse(localStorage.getItem("Orders")) || [];
+      orders.push(Placeorder);
+      localStorage.setItem("Orders", JSON.stringify(orders));
+
+      localStorage.removeItem("Total_Cart");
+      localStorage.removeItem("checkoutData");
+
+navigate(`/order/${Placeorder.id}`);
+
+    }
+  } catch (error) {
+    console.error("Order failed:", error);
+    alert("Order failed. Please try again.");
+  }
+}
+
+
 
   return (
     <>
@@ -19,11 +93,11 @@ const Checkout = () => {
         <Buttonback url="/cart" />
       </div>
 
-      <div style={{ display: "flex", marginBottom: "30px" }}>
+      <div style={{ display: "flex", marginBottom: "30px",gap:"20px" }}>
         {/* USER INFO */}
         <div
           style={{
-            backgroundColor: "#181212ff",
+            backgroundColor: "#ffffffff",
             width: "880px",
             margin: "auto",
             marginTop: "20px",
@@ -119,6 +193,7 @@ const Checkout = () => {
             <div style={{ marginTop: "15px" }}>
               <label style={{ fontWeight: "600" }}>ADDRESS</label>
               <input
+              value={address}
                 type="text"
                 placeholder="Enter delivery address"
                 style={{
@@ -128,6 +203,7 @@ const Checkout = () => {
                   borderRadius: "5px",
                   border: "0.5px solid #ccc",
                 }}
+                 onChange={(e) => setAddress(e.target.value)}
               />
             </div>
 
@@ -136,6 +212,7 @@ const Checkout = () => {
               <div>
                 <label style={{ fontWeight: "600" }}>TOWN / CITY</label>
                 <input
+                value={city}
                   type="text"
                   style={{
                     height: "43px",
@@ -144,12 +221,14 @@ const Checkout = () => {
                     borderRadius: "5px",
                     border: "0.5px solid #ccc",
                   }}
+                   onChange={(e) => setCity(e.target.value)}
                 />
               </div>
 
               <div>
                 <label style={{ fontWeight: "600" }}>STATE</label>
                 <input
+                value={town}
                   type="text"
                   style={{
                     height: "43px",
@@ -158,13 +237,16 @@ const Checkout = () => {
                     borderRadius: "5px",
                     border: "0.5px solid #ccc",
                   }}
+                   onChange={(e) => setTown(e.target.value)}
                 />
               </div>
 
               <div>
                 <label style={{ fontWeight: "600" }}>ZIP / POSTAL CODE</label>
                 <input
-                  type="text"
+                value={postcode}
+             type="text"
+  maxLength={6}
                   style={{
                     height: "43px",
                     width: "200px",
@@ -172,6 +254,7 @@ const Checkout = () => {
                     borderRadius: "5px",
                     border: "0.5px solid #ccc",
                   }}
+                   onChange={(e) => setPostcode(e.target.value)}
                 />
               </div>
             </div>
@@ -189,13 +272,14 @@ const Checkout = () => {
                   border: "0.5px solid #ccc",
                   borderRadius: "5px",
                 }}
+            
               >
                 <option value="">Select Country</option>
-                <option value="India">India</option>
-                <option value="USA">United States</option>
-                <option value="Canada">Canada</option>
-                <option value="UK">United Kingdom</option>
-                <option value="Australia">Australia</option>
+                <option value="India" >India</option>
+                <option value="USA" >United States</option>
+                <option value="Canada" >Canada</option>
+                <option value="UK" >United Kingdom</option>
+                <option value="Australia" >Australia</option>
               </select>
             </div>
           </div>
@@ -204,7 +288,7 @@ const Checkout = () => {
         {/* ORDER SUMMARY */}
         <div
           style={{
-            backgroundColor: "#aaa1a1ff",
+            backgroundColor: "#ffffffff",
             height: "auto",
             width: "430px",
             marginTop: "20px",
@@ -391,25 +475,25 @@ marginBottom:"20px",
               </h3>
 <hr /> 
 <label>
-  <input type="radio" name="payment" value="cod" /> Cash on Delivery
+  <input type="radio" name="payment" value="cod" onChange={(e)=>setPayment(e.target.value)} /> Cash on Delivery
 </label>
 <br />
 
 <label>
-  <input type="radio" name="payment" value="card" /> Credit Card
+  <input type="radio" name="payment" value="card" onChange={(e)=>setPayment(e.target.value)} /> Credit Card
 </label>
 <br />
 
 <label>
-  <input type="radio" name="payment" value="debit" /> Debit Card
+  <input type="radio" name="payment" value="debit" onChange={(e)=>setPayment(e.target.value)}/> Debit Card
 </label>
 <br />
 
 <label>
-  <input type="radio" name="payment" value="paypal" /> PayPal
+  <input type="radio" name="payment" value="paypal" onChange={(e)=>setPayment(e.target.value)}/> PayPal
 </label>
-<Link to='/order'>
-<button className='btn btn-success' style={{width:'100%',marginTop:"20px"}}>Place Order</button> </Link>
+
+<button className='btn btn-success' style={{width:'100%',marginTop:"20px"}} onClick={handleOrder}>Place Order</button> 
           </div>
         </div>
       </div>

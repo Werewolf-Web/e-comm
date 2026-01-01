@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Track from "../../components/collect/Track";
@@ -28,6 +29,8 @@ import Buttonback from "../../components/button/Buttonback";
 import Quntiti from "../../components/button/Quntiti";
 
 const ProductDetail = () => {
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [value, setValue] = useState("1");
@@ -86,6 +89,39 @@ const ProductDetail = () => {
   const decreaseQty = () => {
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
   };
+function Buynow(){
+
+  if (!colerr || !sizee) {
+   document.getElementById('error').innerHTML = "select a color !"
+    document.getElementById('errorr').innerHTML = "select a size !"
+
+    return;
+  }
+
+const Totalprice = (finalaprice * quantity).toFixed(2);
+  const cartItem = {
+    id: product.id,
+    brand:product.brand,
+    name: product.name,
+    price: product.price,
+    finalaprice: finalaprice,
+    size: sizee,
+    image: product.images[0],
+    available: product.stock,
+    color: colerr,
+    quantity: quantity,
+    Totalprice:Totalprice
+  };
+          const localCart = JSON.parse(localStorage.getItem("Total_Cart")) || [];
+        localCart.push(cartItem);
+        localStorage.setItem("Total_Cart", JSON.stringify(localCart));
+
+  console.log("Added to cart:", cartItem);
+  setQuantity(1)
+  setColerr("")
+  setSizee("")
+    navigate("/cart");
+}
 
 function pasArr() {
   if (!colerr) {
@@ -133,7 +169,7 @@ const Totalprice = (finalaprice * quantity).toFixed(2);
       >
         {/* TRACK */}
         <div style={{ marginTop: "10px" }}>
-          <Track title="Product Detail" name={product.name} />
+          <Track title="Product Detail" nameLink='/products' LName="products" name={product.name} />
         </div>
         <Buttonback url="/products" />
         {/* MAIN CARD */}
@@ -360,14 +396,11 @@ const Totalprice = (finalaprice * quantity).toFixed(2);
               >
                 Add to Cart
               </button>
-              <a
-                href="/cart"
-                style={{ textDecoration: "none", flex: "1", minWidth: "200px" }}
-              >
-                <button className="btn btn-success" style={{ width: "100%" }}>
+         
+                <button className="btn btn-success" style={{ width: "100%" }} onClick={Buynow}>
                   Buy Now
                 </button>
-              </a>
+            
             </div>
 
             {/* SOCIAL SHARE */}

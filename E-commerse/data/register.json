@@ -8,64 +8,6 @@
       "phone": "+1 (381) 789-7756",
       "email": "jago@mailinator.com",
       "password": "Pa$$w0rd!"
-    },
-    {
-      "id": "70a8",
-      "firstName": "Sunt odio qui tempor",
-      "lastName": "Ut ut aut earum quia",
-      "gender": "Female",
-      "phone": "+1 (327) 412-9753",
-      "email": "gija@mailinator.com",
-      "password": "Pa$$w0rd!"
-    },
-    {
-      "id": "dc2b",
-      "firstName": "Et labore eum deseru",
-      "lastName": "Ad omnis eum magni o",
-      "gender": "Female",
-      "phone": "+1 (362) 989-9287",
-      "email": "qiwilidu@mailinator.com",
-      "password": "Pa$$w0rd!"
-    },
-    {
-      "id": "1767009920115",
-      "firstName": "Tempora proident al",
-      "lastName": "Consequatur Aut et",
-      "gender": "Male",
-      "phone": "1265456566",
-      "email": "giva@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "createdAt": "2025-12-29T12:05:20.115Z"
-    },
-    {
-      "id": "1767010298003",
-      "firstName": "Ea quos quis quia fu",
-      "lastName": "Dolore nesciunt rec",
-      "gender": "Other",
-      "phone": "1236457986",
-      "email": "fivybih@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "createdAt": "2025-12-29T12:11:38.003Z"
-    },
-    {
-      "id": 1767159291324,
-      "firstName": "Voluptas excepturi n",
-      "lastName": "Et ex quas excepteur",
-      "gender": "Female",
-      "phone": "1444384141",
-      "email": "fubuva@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "createdAt": "2025-12-31T05:34:51.324Z"
-    },
-    {
-      "id": 1767159906620,
-      "firstName": "Lorem nesciunt veli",
-      "lastName": "Accusamus dolor earu",
-      "gender": "Female",
-      "phone": "1949957958",
-      "email": "hepupudika@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "createdAt": "2025-12-31T05:45:06.620Z"
     }
   ]
 }
