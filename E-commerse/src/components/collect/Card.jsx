@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Card = ({ item }) => {
   const finalPrice = item.price - item.discount;
-
+  const navigate = useNavigate();
   const [isWishlisted, setIsWishlisted] = useState(false);
 
   // 🔹 Check wishlist on load
@@ -46,6 +46,9 @@ const Card = ({ item }) => {
   }
 };
 
+const Gonavigate =()=>{
+navigate(`/products/${item.id}`)
+}
 
   return (
     <div
@@ -59,11 +62,10 @@ const Card = ({ item }) => {
         flexDirection: "column",
       }}
     >
-      <div className="card-body d-flex flex-column p-2" style={{ flex: 1 }}>
-        <Link
-          to={`/products/${item.id}`}
-          style={{ textDecoration: "none", color: "black" }}
-        >
+      <div className="card-body d-flex flex-column p-2" style={{ flex: 1 }}
+    
+      >
+    <div onClick={Gonavigate}>
           <img
             src={item.images[0]}
             alt={item.name}
@@ -94,21 +96,22 @@ const Card = ({ item }) => {
               -{item.discount}%
             </span>
           </div>
-        </Link>
+    </div>
 
         {/* ACTION BUTTONS */}
         <div className="mt-auto d-flex justify-content-between gap-2">
-          <Link
-            to={`/products/${item.id}`}
+          <div
+          onClick={Gonavigate}
             className="btn btn-outline-primary btn-sm flex-grow-1"
           >
             <VisibilityIcon fontSize="small" />
-          </Link>
+          </div>
 
           <button
             className={`btn btn-sm flex-grow-1 ${
               isWishlisted ? "btn-danger" : "btn-outline-danger"
             }`}
+          
             onClick={updatedWishlists}
           >
             <FavoriteBorderIcon style={{ fontSize: "clamp(16px, 2vw, 20px)" }} />

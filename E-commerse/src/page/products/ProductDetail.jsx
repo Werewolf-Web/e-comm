@@ -15,6 +15,9 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookSharpIcon from "@mui/icons-material/FacebookSharp";
 import noproduct from "../../assets/noProduct.jpg"
 import "./ProductDetail1.css";
+import MyReactImageMagnify from "./MyReactImageMagnify";
+
+import Zoom from 'react-medium-image-zoom'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -49,6 +52,16 @@ const ProductDetail = () => {
       .then((data) => setProduct(data))
       .catch((err) => console.error(err));
   }, [id]);
+useEffect(() => {
+  if (product?.sizes?.length > 0) {
+    setSizee(product.sizes[0]);
+  }
+}, [product]);
+useEffect(() => {
+  if (product?.colors?.length > 0) {
+    setColerr(product.colors[0]);
+  }
+}, [product]);
 
   if (!product) return<div style={{
   backgroundColor: "#ffffffff",
@@ -124,16 +137,7 @@ const Totalprice = (finalaprice * quantity).toFixed(2);
 }
 
 function pasArr() {
-  if (!colerr) {
-   document.getElementById('error').innerHTML = "select a color !"
-    return;
-  }
-  if(!sizee){
 
-   document.getElementById('errorr').innerHTML = "select a size !"
-
-    return;
-  }
 const Totalprice = (finalaprice * quantity).toFixed(2);
   const cartItem = {
     id: product.id,
