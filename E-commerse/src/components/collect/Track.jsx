@@ -15,6 +15,7 @@ const Track = (props) => {
     justifyContent: "center",
     paddingLeft: "40px",
     height: "110px",
+    marginBottom: "20px",
   }}
 >
   <h1>{props.title}</h1>
