@@ -475,22 +475,22 @@ marginBottom:"20px",
               </h3>
 <hr /> 
 <label>
-  <input type="radio" name="payment" value="cod" onChange={(e)=>setPayment(e.target.value)} /> Cash on Delivery
+  <input type="radio" name="payment" value="Cash on Delivery" onChange={(e)=>setPayment(e.target.value)} /> Cash on Delivery
 </label>
 <br />
 
 <label>
-  <input type="radio" name="payment" value="card" onChange={(e)=>setPayment(e.target.value)} /> Credit Card
+  <input type="radio" name="payment" value="Credit Card" onChange={(e)=>setPayment(e.target.value)} /> Credit Card
 </label>
 <br />
 
 <label>
-  <input type="radio" name="payment" value="debit" onChange={(e)=>setPayment(e.target.value)}/> Debit Card
+  <input type="radio" name="payment" value=" Debit Card" onChange={(e)=>setPayment(e.target.value)}/> Debit Card
 </label>
 <br />
 
 <label>
-  <input type="radio" name="payment" value="paypal" onChange={(e)=>setPayment(e.target.value)}/> PayPal
+  <input type="radio" name="payment" value="pay pal" onChange={(e)=>setPayment(e.target.value)}/> PayPal
 </label>
 
 <button className='btn btn-success' style={{width:'100%',marginTop:"20px"}} onClick={handleOrder}>Place Order</button> 
