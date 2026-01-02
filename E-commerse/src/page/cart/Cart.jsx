@@ -84,9 +84,13 @@ const handleCheckout = () => {
     const num = typeof price === 'string' ? parseFloat(price) : Number(price);
     return isNaN(num) ? "0.00" : num.toFixed(2);
   };
+  function GoProduct(id){
+  navigate(`/products/${id}`)
+  };
 
   return (
     <>
+ 
       <div style={{ marginBottom: "25px" }}>
         <Track title="Cart" name="Cart" nameLink="/products" LName="Products" />
       </div>
@@ -176,7 +180,7 @@ const handleCheckout = () => {
                     >
                       {/* Product with Image */}
                       <td style={{ padding: "15px" }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "15px" }} onClick={()=>GoProduct(item.id)}>
                           <img
                             src={item.image}
                             alt={item.name}
