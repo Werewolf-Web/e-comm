@@ -8,23 +8,40 @@ const Changepass = () => {
       const [Password, setPassword] = useState([]);
             const [NewPassword, setNewPassword] = useState([]);
 
-            const currentUser =
-  JSON.parse(localStorage.getItem("Total_User")) || null;
-function handleChange(event){
-    event.preventDefault();
-    if(Password !== NewPassword){
-        alert("Please Enter Same Password")
-        setNewPassword([]);
-        setPassword([]);
-    }
-    else{
-        console.log(NewPassword)
-           setNewPassword([]);
-        setPassword([]);
-        currentUser.password=NewPassword;
-        localStorage.setItem('Total_User',JSON.stringify(currentUser))
-        alert("Your Password Has Been Changed Successfully")
-}}
+           const Current_User =
+  JSON.parse(localStorage.getItem("Current_User"));
+
+function handleChange(e) {
+  e.preventDefault();
+
+  if (!Current_User) {
+    alert("No user logged in");
+    return;
+  }
+
+  if (Password !== NewPassword) {
+    alert("Please enter same password");
+    setPassword("");
+    setNewPassword("");
+    return;
+  }
+
+  const updatedUser = {
+    ...Current_User,
+    password: NewPassword,
+  };
+
+  localStorage.setItem(
+    "Current_User",
+    JSON.stringify(updatedUser)
+  );
+
+  alert("Your password has been changed successfully");
+
+  setPassword("");
+  setNewPassword("");
+}
+
 
   return (
     <>
