@@ -15,9 +15,6 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookSharpIcon from "@mui/icons-material/FacebookSharp";
 import noproduct from "../../assets/noProduct.jpg"
 import "./ProductDetail1.css";
-import MyReactImageMagnify from "./MyReactImageMagnify";
-
-import Zoom from 'react-medium-image-zoom'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -103,63 +100,101 @@ useEffect(() => {
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
   };
 function Buynow(){
+ const localCart = JSON.parse(localStorage.getItem("Total_Cart")) || [];
 
-  if (!colerr || !sizee) {
-   document.getElementById('error').innerHTML = "select a color !"
-    document.getElementById('errorr').innerHTML = "select a size !"
+  // find same product with same color & size
+  const existingItemIndex = localCart.findIndex(
+    (item) =>
+      item.id === product.id &&
+      item.color === colerr &&
+      item.size === sizee
+  );
 
-    return;
+  if (existingItemIndex !== -1) {
+    // item exists → increase quantity
+    localCart[existingItemIndex].quantity += quantity;
+
+    // update total price
+    localCart[existingItemIndex].Totalprice = (
+      localCart[existingItemIndex].finalaprice *
+      localCart[existingItemIndex].quantity
+    ).toFixed(2);
+  } else {
+    // item does not exist → add new
+    const cartItem = {
+      id: product.id,
+      brand: product.brand,
+      name: product.name,
+      price: product.price,
+      finalaprice: finalaprice,
+      size: sizee,
+      image: product.images[0],
+      available: product.stock,
+      color: colerr,
+      quantity: quantity,
+      Totalprice: (finalaprice * quantity).toFixed(2),
+    };
+
+    localCart.push(cartItem);
   }
 
-const Totalprice = (finalaprice * quantity).toFixed(2);
-  const cartItem = {
-    id: product.id,
-    brand:product.brand,
-    name: product.name,
-    price: product.price,
-    finalaprice: finalaprice,
-    size: sizee,
-    image: product.images[0],
-    available: product.stock,
-    color: colerr,
-    quantity: quantity,
-    Totalprice:Totalprice
-  };
-          const localCart = JSON.parse(localStorage.getItem("Total_Cart")) || [];
-        localCart.push(cartItem);
-        localStorage.setItem("Total_Cart", JSON.stringify(localCart));
+  // save cart
+  localStorage.setItem("Total_Cart", JSON.stringify(localCart));
 
-  console.log("Added to cart:", cartItem);
-  setQuantity(1)
-  setColerr("")
-  setSizee("")
+  console.log("Updated cart:", localCart);
+
+  // reset UI
+  setQuantity(1);
+
     navigate("/cart");
 }
-
 function pasArr() {
+  const localCart = JSON.parse(localStorage.getItem("Total_Cart")) || [];
 
-const Totalprice = (finalaprice * quantity).toFixed(2);
-  const cartItem = {
-    id: product.id,
-    brand:product.brand,
-    name: product.name,
-    price: product.price,
-    finalaprice: finalaprice,
-    size: sizee,
-    image: product.images[0],
-    available: product.stock,
-    color: colerr,
-    quantity: quantity,
-    Totalprice:Totalprice
-  };
-          const localCart = JSON.parse(localStorage.getItem("Total_Cart")) || [];
-        localCart.push(cartItem);
-        localStorage.setItem("Total_Cart", JSON.stringify(localCart));
+  // find same product with same color & size
+  const existingItemIndex = localCart.findIndex(
+    (item) =>
+      item.id === product.id &&
+      item.color === colerr &&
+      item.size === sizee
+  );
 
-  console.log("Added to cart:", cartItem);
-  setQuantity(1)
-  setColerr("")
-  setSizee("")
+  if (existingItemIndex !== -1) {
+    // item exists → increase quantity
+    localCart[existingItemIndex].quantity += quantity;
+
+    // update total price
+    localCart[existingItemIndex].Totalprice = (
+      localCart[existingItemIndex].finalaprice *
+      localCart[existingItemIndex].quantity
+    ).toFixed(2);
+  } else {
+    // item does not exist → add new
+    const cartItem = {
+      id: product.id,
+      brand: product.brand,
+      name: product.name,
+      price: product.price,
+      finalaprice: finalaprice,
+      size: sizee,
+      image: product.images[0],
+      available: product.stock,
+      color: colerr,
+      quantity: quantity,
+      Totalprice: (finalaprice * quantity).toFixed(2),
+    };
+
+    localCart.push(cartItem);
+  }
+
+  // save cart
+  localStorage.setItem("Total_Cart", JSON.stringify(localCart));
+
+  console.log("Updated cart:", localCart);
+
+  // reset UI
+  setQuantity(1);
+
 }
 
   return (
