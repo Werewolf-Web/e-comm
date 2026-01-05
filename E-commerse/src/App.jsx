@@ -17,6 +17,7 @@ import Order from "./page/order/Order";
 import Error from "./page/Error";
 import Orderdetail from "./page/order/Orderdetail";
 import TotalOrder from "./page/order/TotalOrder";
+import Userdetail from "./profile/userprofile/Userdetail";
 
 const App = () => {
   return (
@@ -32,7 +33,7 @@ const App = () => {
         <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart/>} />
         <Route path="/profile/wishlist" element={<Wishlist/>} />
-
+        <Route path="/profile" element={<Userdetail/>}/>
         <Route path="/checkout" element={<Checkout/>}/>
         <Route path="*" element={<Error/>} />
         <Route path="/order" element={<Order/>}/>
