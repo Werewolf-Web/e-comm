@@ -4,7 +4,7 @@ import zara from '../../assets/Zara_Logo.png'
 import nikie from '../../assets/Nike.png'
 import Hermes from '../../assets/Hermes-Logo_mpfmin.png'
 import louis from '../../assets/Louise.webp'
-import bag from '../../assets/bag.webp'
+import bags from '../../assets/bag.webp'
 import './slider.css'
 import { Link } from 'react-router-dom'
 
@@ -26,14 +26,13 @@ const Slidebr = () => {
                           <Link to="/products?brand=Lululemon">  <div className='card'><img className='set' src={samsang} width="150px" height="100px" alt="" /></div></Link>
                           <Link to="/products?brand=Puma">  <div className='card'><img className='set' src={zara} width="150px" height="100px" alt="" /></div></Link>
                           <Link to="/products?brand=Nike">  <div className='card'><img className='set' src={nikie} width="150px" height="100px" alt="" /></div></Link>
-                          <Link to="/products?brand=bag">  <div className='card'><img className='set' src={bag} width="150px" height="100px" alt="" /></div></Link>
+                          <Link to="/products?pro_category=bags">  <div className='card'><img className='set' src={bags} width="150px" height="100px" alt="" /></div></Link>
                           <Link to="/products?brand=Louis Vuitton">  <div className='card'><img className='set' src={louis} width="150px" height="100px" alt="" /></div></Link>
                   </div>
                           <div aria-hidden='true' className='group'>
                           <Link to="/products?brand=Lululemon">   <div className='card'><img className='set' src={zara} width="150px" height="100px" alt="" /></div></Link>
                           <Link to="/products?brand=Puma">  <div className='card'><img className='set' src={samsang} width="150px" height="100px" alt="" /></div></Link>
-                          <Link to="/products?brand=bag">   <div className='card'><img className='set' src={bag} width="150px" height="100px" alt="" /></div></Link>
-                         
+                          <Link to="/products?pro_category=bags">   <div className='card'><img className='set' src={bags} width="150px" height="100px" alt="" /></div></Link>
                           <Link to="/products?brand=Puma">  <div className='card'><img className='set' src={samsang} width="150px" height="100px" alt="" /></div></Link>
                           <Link to="/products?brand=Louis Vuitton">  <div className='card'><img className='set' src={louis} width="150px" height="100px" alt="" /></div></Link>
                          </div>

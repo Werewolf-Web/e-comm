@@ -99,6 +99,33 @@ navigate(`/products/${item.id}`)
     </div>
 
         {/* ACTION BUTTONS */}
+{/* <div className="mt-auto d-flex justify-content-between gap-2">
+
+  <button
+    onClick={Gonavigate}
+    className="btn btn-outline-primary btn-sm flex-grow-1"
+  >
+    <VisibilityIcon fontSize="small" />
+  </button>
+
+
+  <button
+    onClick={updatedWishlists}
+    className="btn btn-outline-danger btn-sm flex-grow-1"
+    style={{ backgroundColor: "transparent" }}
+  >
+    <FavoriteBorderIcon
+      style={{
+        fontSize: "20px",
+        color: isWishlisted ? "#fff" : "#dc3545",
+        backgroundColor: isWishlisted ? "#dc3545" : "transparent",
+        borderRadius: "10%",
+
+        transition: "0.3s ease",
+      }}
+    />
+  </button>
+</div> */}
         <div className="mt-auto d-flex justify-content-between gap-2">
           <div
           onClick={Gonavigate}
@@ -117,6 +144,7 @@ navigate(`/products/${item.id}`)
             <FavoriteBorderIcon style={{ fontSize: "clamp(16px, 2vw, 20px)" }} />
           </button>
         </div>
+            
       </div>
     </div>
   );
