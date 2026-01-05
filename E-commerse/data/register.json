@@ -8,6 +8,26 @@
       "phone": "+1 (381) 789-7756",
       "email": "jago@mailinator.com",
       "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "1767332698831",
+      "firstName": "sujal",
+      "lastName": "godavriya",
+      "gender": "Male",
+      "phone": "1236547896",
+      "email": "abcd@gmail.com",
+      "password": "123456",
+      "createdAt": "2026-01-02T05:44:58.831Z"
+    },
+    {
+      "id": 1767589636335,
+      "firstName": "mohan",
+      "lastName": "kumar",
+      "gender": "Male",
+      "phone": "2316548972",
+      "email": "mohan@gmail.com",
+      "password": "123456",
+      "createdAt": "2026-01-05T05:07:16.335Z"
     }
   ]
 }
