@@ -1,7 +1,7 @@
 import React from 'react'
 import cort from '../../assets/cort.webp'
 import earring from '../../assets/earring.webp'
-import bag from '../../assets/bag.webp'
+import bags from '../../assets/bag.webp'
 import shoes1 from '../../assets/shoes1.webp'
 import pent from '../../assets/feshion.jpeg'   
 import perfume from '../../assets/perfume.webp'
@@ -33,10 +33,10 @@ const Categories = () => {
     <h3>Accessories</h3>
   </div></Link>
 
-<Link   to="/products?pro_category=bag" style={{textDecoration:"none", color:"black"}}>
+<Link   to="/products?pro_category=bags" style={{textDecoration:"none", color:"black"}}>
   <div className="category-item">
-    <img src={bag} alt="" />
-    <h3>Bags</h3>
+    <img src={bags} alt="" />
+    <h3>bagss</h3>
   </div></Link>
 
 <Link to="/products?pro_category=shoes" style={{textDecoration:"none", color:"black"}}>

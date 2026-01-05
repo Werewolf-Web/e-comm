@@ -9,6 +9,8 @@
 .main-swiper {
   flex: 1;
   width: 100%;
+  /* fill parent height (parent sets fixed height) so images can size to container */
+  height: 100%;
   border-radius: 8px;
   overflow: hidden;
   background: #f5f5f5;
@@ -18,6 +20,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.magnify-wrapper {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  position: relative;
+}
+
+.magnify-wrapper > div {
+  width: 100% !important;
 }
 
 .main-slide {
@@ -30,7 +45,8 @@
 }
 
 .main-slide img {
-  width: 100%;
+  /* keep aspect ratio and show the entire image within the container */
+  width: auto;
   height: 100%;
   object-fit: contain;
   max-width: 100%;

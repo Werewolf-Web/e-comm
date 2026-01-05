@@ -234,7 +234,7 @@ const ProductDetail = () => {
           {/* SWIPER GALLERY */}
           <div
             style={{
-              height: "440px",
+              height: "560px",
               width: "400px",
               borderRadius: "8px",
               overflow: "hidden",
@@ -248,25 +248,26 @@ const ProductDetail = () => {
     swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
   }}
   modules={[Navigation, Thumbs]}
-  className="main-swiper"
+  className="main-swiper "
+  
 >
   {product.images?.map((image, index) => (
     <SwiperSlide key={index}>
       <div className="magnify-wrapper">
         <ReactImageMagnify
-          smallImage={{
-            alt: `${product.name} ${index + 1}`,
-            isFluidWidth: true,
-            src: image,
-          }}
-          largeImage={{
-            src: image,
-            width: 1500,
-            height: 1900,
-          }}
-          enlargedImageContainerDimensions={{
-            width: "150%",
-            height: "150%",
+          {...{
+            smallImage: {
+              alt: `${product.name} ${index + 1}`,
+              isFluidWidth: true,
+              src: image,
+            },
+            largeImage: {
+              src: image,
+              width: 1800,
+              height: 1800,
+            },
+            enlargedImagePosition: "over",
+            pressDuration: 0,
           }}
         />
       </div>

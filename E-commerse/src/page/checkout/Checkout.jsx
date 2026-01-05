@@ -206,59 +206,7 @@ navigate(`/order/${Placeorder.id}`);
                  onChange={(e) => setAddress(e.target.value)}
               />
             </div>
-
-            {/* CITY / STATE / ZIP */}
-            <div style={{ display: "flex", gap: "15px", marginTop: "15px" }}>
-              <div>
-                <label style={{ fontWeight: "600" }}>TOWN / CITY</label>
-                <input
-                value={city}
-                  type="text"
-                  style={{
-                    height: "43px",
-                    width: "200px",
-                    paddingLeft: "15px",
-                    borderRadius: "5px",
-                    border: "0.5px solid #ccc",
-                  }}
-                   onChange={(e) => setCity(e.target.value)}
-                />
-              </div>
-
-              <div>
-                <label style={{ fontWeight: "600" }}>STATE</label>
-                <input
-                value={town}
-                  type="text"
-                  style={{
-                    height: "43px",
-                    width: "200px",
-                    paddingLeft: "15px",
-                    borderRadius: "5px",
-                    border: "0.5px solid #ccc",
-                  }}
-                   onChange={(e) => setTown(e.target.value)}
-                />
-              </div>
-
-              <div>
-                <label style={{ fontWeight: "600" }}>ZIP / POSTAL CODE</label>
-                <input
-                value={postcode}
-             type="text"
-  maxLength={6}
-                  style={{
-                    height: "43px",
-                    width: "200px",
-                    paddingLeft: "15px",
-                    borderRadius: "5px",
-                    border: "0.5px solid #ccc",
-                  }}
-                   onChange={(e) => setPostcode(e.target.value)}
-                />
-              </div>
-            </div>
-            <div style={{ marginTop: "15px" }}>
+                   <div style={{ marginTop: "15px" }}>
               <label style={{ fontWeight: "600" }}>COUNTRY</label>
               <select
                 value={country}
@@ -282,6 +230,59 @@ navigate(`/order/${Placeorder.id}`);
                 <option value="Australia" >Australia</option>
               </select>
             </div>
+            {/* CITY / STATE / ZIP */}
+            <div style={{ display: "flex", gap: "15px", marginTop: "15px" }}>
+              <div>
+                <label style={{ fontWeight: "600" }}>STATE</label>
+                <input
+                value={town}
+                  type="text"
+                  style={{
+                    height: "43px",
+                    width: "200px",
+                    paddingLeft: "15px",
+                    borderRadius: "5px",
+                    border: "0.5px solid #ccc",
+                  }}
+                   onChange={(e) => setTown(e.target.value)}
+                />
+              </div>
+              <div>
+                <label style={{ fontWeight: "600" }}>TOWN / CITY</label>
+                <input
+                value={city}
+                  type="text"
+                  style={{
+                    height: "43px",
+                    width: "200px",
+                    paddingLeft: "15px",
+                    borderRadius: "5px",
+                    border: "0.5px solid #ccc",
+                  }}
+                   onChange={(e) => setCity(e.target.value)}
+                />
+              </div>
+
+              
+
+              <div>
+                <label style={{ fontWeight: "600" }}>ZIP / POSTAL CODE</label>
+                <input
+                value={postcode}
+             type="text"
+  maxLength={6}
+                  style={{
+                    height: "43px",
+                    width: "200px",
+                    paddingLeft: "15px",
+                    borderRadius: "5px",
+                    border: "0.5px solid #ccc",
+                  }}
+                   onChange={(e) => setPostcode(e.target.value)}
+                />
+              </div>
+            </div>
+           
           </div>
         </div>
 
