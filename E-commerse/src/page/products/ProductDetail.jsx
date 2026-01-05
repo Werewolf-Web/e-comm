@@ -13,9 +13,9 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookSharpIcon from "@mui/icons-material/FacebookSharp";
-import noproduct from "../../assets/noProduct.jpg"
+import noproduct from "../../assets/noProduct.jpg";
 import "./ProductDetail1.css";
-
+import ReactImageMagnify from "react-image-magnify";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs, FreeMode } from "swiper/modules";
@@ -39,8 +39,8 @@ const ProductDetail = () => {
   // ---- pass product data ---
   // const [prname, setPrname] = useState("");
   // const [quanti, setQuanti] = useState("")
-  const [colerr, setColerr] = useState("")
-  const [sizee, setSizee] = useState("")
+  const [colerr, setColerr] = useState("");
+  const [sizee, setSizee] = useState("");
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
@@ -49,153 +49,155 @@ const ProductDetail = () => {
       .then((data) => setProduct(data))
       .catch((err) => console.error(err));
   }, [id]);
-useEffect(() => {
-  if (product?.sizes?.length > 0) {
-    setSizee(product.sizes[0]);
-  }
-}, [product]);
-useEffect(() => {
-  if (product?.colors?.length > 0) {
-    setColerr(product.colors[0]);
-  }
-}, [product]);
+  useEffect(() => {
+    if (product?.sizes?.length > 0) {
+      setSizee(product.sizes[0]);
+    }
+  }, [product]);
+  useEffect(() => {
+    if (product?.colors?.length > 0) {
+      setColerr(product.colors[0]);
+    }
+  }, [product]);
 
-  if (!product) return<div style={{
-  backgroundColor: "#ffffffff",
-  height: "450px",
-  width: "100%",
-  display: "flex",           // Add this
-  justifyContent: "center",  // Add this for horizontal centering
-  alignItems: "center"       // Add this for vertical centering
-}}>
-  <div style={{
-    backgroundColor: "white",
-    height: "50vh",
-    width: "50%",
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }}>
-     <img 
-      src={noproduct} 
-      alt="No products found" 
-      style={{
-        width: "100%",
-        height: "100%",
-        objectFit: "contain"  // Maintain aspect ratio, fit within container
-      }}
-    />
-  </div>
-</div>;
+  if (!product)
+    return (
+      <div
+        style={{
+          backgroundColor: "#ffffffff",
+          height: "450px",
+          width: "100%",
+          display: "flex", // Add this
+          justifyContent: "center", // Add this for horizontal centering
+          alignItems: "center", // Add this for vertical centering
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: "white",
+            height: "50vh",
+            width: "50%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <img
+            src={noproduct}
+            alt="No products found"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain", // Maintain aspect ratio, fit within container
+            }}
+          />
+        </div>
+      </div>
+    );
   const finalaprice = product.price - (product.discount * product.price) / 100;
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   const increaseQty = () => {
-    setQuantity((prev) => prev + 1);
+    setQuantity((prev) => (prev < product.stock ? prev + 1 : prev));
   };
 
   const decreaseQty = () => {
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
   };
-function Buynow(){
- const localCart = JSON.parse(localStorage.getItem("Total_Cart")) || [];
+  function Buynow() {
+    const localCart = JSON.parse(localStorage.getItem("Total_Cart")) || [];
 
-  // find same product with same color & size
-  const existingItemIndex = localCart.findIndex(
-    (item) =>
-      item.id === product.id &&
-      item.color === colerr &&
-      item.size === sizee
-  );
+    // find same product with same color & size
+    const existingItemIndex = localCart.findIndex(
+      (item) =>
+        item.id === product.id && item.color === colerr && item.size === sizee
+    );
 
-  if (existingItemIndex !== -1) {
-    // item exists → increase quantity
-    localCart[existingItemIndex].quantity += quantity;
+    if (existingItemIndex !== -1) {
+      // item exists → increase quantity
+      localCart[existingItemIndex].quantity += quantity;
 
-    // update total price
-    localCart[existingItemIndex].Totalprice = (
-      localCart[existingItemIndex].finalaprice *
-      localCart[existingItemIndex].quantity
-    ).toFixed(2);
-  } else {
-    // item does not exist → add new
-    const cartItem = {
-      id: product.id,
-      brand: product.brand,
-      name: product.name,
-      price: product.price,
-      finalaprice: finalaprice,
-      size: sizee,
-      image: product.images[0],
-      available: product.stock,
-      color: colerr,
-      quantity: quantity,
-      Totalprice: (finalaprice * quantity).toFixed(2),
-    };
+      // update total price
+      localCart[existingItemIndex].Totalprice = (
+        localCart[existingItemIndex].finalaprice *
+        localCart[existingItemIndex].quantity
+      ).toFixed(2);
+    } else {
+      // item does not exist → add new
+      const cartItem = {
+        id: product.id,
+        brand: product.brand,
+        name: product.name,
+        price: product.price,
+        finalaprice: finalaprice,
+        size: sizee,
+        image: product.images[0],
+        available: product.stock,
+        color: colerr,
+        quantity: quantity,
+        Totalprice: (finalaprice * quantity).toFixed(2),
+      };
 
-    localCart.push(cartItem);
-  }
+      localCart.push(cartItem);
+    }
 
-  // save cart
-  localStorage.setItem("Total_Cart", JSON.stringify(localCart));
+    // save cart
+    localStorage.setItem("Total_Cart", JSON.stringify(localCart));
 
-  console.log("Updated cart:", localCart);
+    console.log("Updated cart:", localCart);
 
-  // reset UI
-  setQuantity(1);
+    // reset UI
+    setQuantity(1);
 
     navigate("/cart");
-}
-function pasArr() {
-  const localCart = JSON.parse(localStorage.getItem("Total_Cart")) || [];
-
-  // find same product with same color & size
-  const existingItemIndex = localCart.findIndex(
-    (item) =>
-      item.id === product.id &&
-      item.color === colerr &&
-      item.size === sizee
-  );
-
-  if (existingItemIndex !== -1) {
-    // item exists → increase quantity
-    localCart[existingItemIndex].quantity += quantity;
-
-    // update total price
-    localCart[existingItemIndex].Totalprice = (
-      localCart[existingItemIndex].finalaprice *
-      localCart[existingItemIndex].quantity
-    ).toFixed(2);
-  } else {
-    // item does not exist → add new
-    const cartItem = {
-      id: product.id,
-      brand: product.brand,
-      name: product.name,
-      price: product.price,
-      finalaprice: finalaprice,
-      size: sizee,
-      image: product.images[0],
-      available: product.stock,
-      color: colerr,
-      quantity: quantity,
-      Totalprice: (finalaprice * quantity).toFixed(2),
-    };
-
-    localCart.push(cartItem);
   }
+  function pasArr() {
+    const localCart = JSON.parse(localStorage.getItem("Total_Cart")) || [];
 
-  // save cart
-  localStorage.setItem("Total_Cart", JSON.stringify(localCart));
+    // find same product with same color & size
+    const existingItemIndex = localCart.findIndex(
+      (item) =>
+        item.id === product.id && item.color === colerr && item.size === sizee
+    );
 
-  console.log("Updated cart:", localCart);
+    if (existingItemIndex !== -1) {
+      // item exists → increase quantity
+      localCart[existingItemIndex].quantity += quantity;
 
-  // reset UI
-  setQuantity(1);
+      // update total price
+      localCart[existingItemIndex].Totalprice = (
+        localCart[existingItemIndex].finalaprice *
+        localCart[existingItemIndex].quantity
+      ).toFixed(2);
+    } else {
+      // item does not exist → add new
+      const cartItem = {
+        id: product.id,
+        brand: product.brand,
+        name: product.name,
+        price: product.price,
+        finalaprice: finalaprice,
+        size: sizee,
+        image: product.images[0],
+        available: product.stock,
+        color: colerr,
+        quantity: quantity,
+        Totalprice: (finalaprice * quantity).toFixed(2),
+      };
 
-}
+      localCart.push(cartItem);
+    }
+
+    // save cart
+    localStorage.setItem("Total_Cart", JSON.stringify(localCart));
+
+    console.log("Updated cart:", localCart);
+
+    // reset UI
+    setQuantity(1);
+  }
 
   return (
     <>
@@ -208,7 +210,12 @@ function pasArr() {
       >
         {/* TRACK */}
         <div style={{ marginTop: "10px" }}>
-          <Track title="Product Detail" nameLink='/products' LName="products" name={product.name} />
+          <Track
+            title="Product Detail"
+            nameLink="/products"
+            LName="products"
+            name={product.name}
+          />
         </div>
         <Buttonback url="/products" />
         {/* MAIN CARD */}
@@ -235,34 +242,38 @@ function pasArr() {
           >
             <div className="product-gallery-container">
               {/* Main Image Slider */}
-              <Swiper
-                style={{
-                  "--swiper-navigation-color": "#fff",
-                  "--swiper-pagination-color": "#fff",
-                }}
-                spaceBetween={10}
+             <Swiper
+  spaceBetween={10}
+  thumbs={{
+    swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+  }}
+  modules={[Navigation, Thumbs]}
+  className="main-swiper"
+>
+  {product.images?.map((image, index) => (
+    <SwiperSlide key={index}>
+      <div className="magnify-wrapper">
+        <ReactImageMagnify
+          smallImage={{
+            alt: `${product.name} ${index + 1}`,
+            isFluidWidth: true,
+            src: image,
+          }}
+          largeImage={{
+            src: image,
+            width: 1500,
+            height: 1900,
+          }}
+          enlargedImageContainerDimensions={{
+            width: "150%",
+            height: "150%",
+          }}
+        />
+      </div>
+    </SwiperSlide>
+  ))}
+</Swiper>
 
-                thumbs={{
-                  swiper:
-                    thumbsSwiper && !thumbsSwiper.destroyed
-                      ? thumbsSwiper
-                      : null,
-                }}
-                modules={[Navigation, Thumbs]}
-                className="main-swiper"
-              >
-                {product.images?.map((image, index) => (
-                  <SwiperSlide key={index}>
-                    <div className="main-slide">
-                      <img
-                        src={image}
-                        alt={`${product.name} view ${index + 1}`}
-                        loading="lazy"
-                      />
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
 
               {/* Thumbnail Slider */}
               {product.images?.length > 1 && (
@@ -337,7 +348,7 @@ function pasArr() {
               <p style={{ marginBottom: "7px" }}>
                 <strong>gender : </strong> {product.category}
               </p>
-                 <p style={{ marginBottom: "7px" }}>
+              <p style={{ marginBottom: "7px" }}>
                 <strong>Category : </strong> {product.pro_category}
               </p>
               <p style={{ marginBottom: "7px" }}>
@@ -374,15 +385,16 @@ function pasArr() {
                         value={color}
                         id={`color-${i}`}
                         checked={colerr === color}
-            onChange={(e) => setColerr(e.target.value)}
+                        onChange={(e) => setColerr(e.target.value)}
                       />
                       <label htmlFor={`color-${i}`}>{color}</label>
-                 
                     </div>
                   ))}
-                         
-                </div><label id="error" style={{color:"red" ,margin:"0px"}}></label>
-              
+                </div>
+                <label
+                  id="error"
+                  style={{ color: "red", margin: "0px" }}
+                ></label>
               </div>
             )}
 
@@ -405,19 +417,28 @@ function pasArr() {
                         name="size"
                         value={size}
                         id={`size-${i}`}
-                          checked={sizee === size}
-            onChange={(e) => setSizee(e.target.value)}
+                        checked={sizee === size}
+                        onChange={(e) => setSizee(e.target.value)}
                       />
                       <label htmlFor={`size-${i}`}>{size}</label>
                     </div>
                   ))}
-                </div><label id="errorr" style={{color:"red" ,margin:"0px"}}></label>
+                </div>
+                <label
+                  id="errorr"
+                  style={{ color: "red", margin: "0px" }}
+                ></label>
               </div>
             )}
             {/* -------  Quntities  ---------------- */}
-{/* ------- QUANTITY -------- */}
+            {/* ------- QUANTITY -------- */}
 
-              <Quntiti increaseQty={increaseQty} quantity={quantity} decreaseQty={decreaseQty}/>
+            <Quntiti
+              increaseQty={increaseQty}
+              quantity={quantity}
+              decreaseQty={decreaseQty}
+              stock={product.stock}
+            />
 
             {/* ACTION BUTTONS */}
             <div
@@ -435,11 +456,14 @@ function pasArr() {
               >
                 Add to Cart
               </button>
-         
-                <button className="btn btn-success" style={{ width: "100%" }} onClick={Buynow}>
-                  Buy Now
-                </button>
-            
+
+              <button
+                className="btn btn-success"
+                style={{ width: "100%" }}
+                onClick={Buynow}
+              >
+                Buy Now
+              </button>
             </div>
 
             {/* SOCIAL SHARE */}
