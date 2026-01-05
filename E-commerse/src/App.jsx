@@ -16,6 +16,7 @@ import Order from "./page/order/Order";
 
 import Error from "./page/Error";
 import Orderdetail from "./page/order/Orderdetail";
+import TotalOrder from "./page/order/TotalOrder";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="*" element={<Error/>} />
         <Route path="/order" element={<Order/>}/>
         <Route path="/order/:id" element={<Orderdetail/>}/>
+        <Route path="/total-order" element={<TotalOrder/>}/>
       </Routes>
       <Newsletter />
     </>

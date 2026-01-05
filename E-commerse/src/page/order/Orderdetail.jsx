@@ -25,7 +25,7 @@ const Orderdetail = () => {
       <div
         style={{ textAlign: "center", marginTop: "45px", marginBottom: "40px" }}
       >
-        <h3 style={{ fontFamily: "serif" }}>Thank you for your purchase!</h3>
+        <h3 style={{ fontFamily: "serif" }}>Thank you for purchase product Mr/Ms {order.customer} !</h3>
         <h4
           style={{
             fontSize: "13px",
@@ -47,6 +47,16 @@ const Orderdetail = () => {
           }}
         >
           Order id : {order.id}{" "}
+        </h4>
+         <h4
+          style={{
+            fontSize: "16px",
+            paddingTop: "5px",
+            fontWeight: "600",
+            fontFamily: "sans-serif",
+          }}
+        >
+          User id : {order.CurentID}{" "}
         </h4>
       </div>
       <div
@@ -177,7 +187,7 @@ const Orderdetail = () => {
                 </tr>
 
                 <tr>
-                  <th scope="row">Discount</th>
+                  <th scope="row">Coupn Discount</th>
                   <td>${order.discount}</td>
                 </tr>
 

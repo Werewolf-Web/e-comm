@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/logo.webp";
+import logo from "../../assets/7987590_414.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -17,7 +17,7 @@ const Navbar = () => {
         
         {/* Logo */}
         <Link className="navbar-brand" to="/">
-          <img src={logo} alt="logo" style={{ height: "40px" }} />
+          <img src={logo} alt="logo" style={{ height: "40px" ,background:"transparent" }} />
         </Link>
 
         {/* Toggle Button */}
