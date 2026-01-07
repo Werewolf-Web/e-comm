@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import Track from "../../components/collect/Track";
 import Buttonback from "../../components/button/Buttonback";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import { Discount } from "@mui/icons-material";
 const Checkout = () => {
   const data = JSON.parse(localStorage.getItem("checkoutData"));
   const Totalcart = JSON.parse(localStorage.getItem("Total_Cart")) || [];
-  const CurentUser = JSON.parse(localStorage.getItem("Current_User")) || {};
+  const CurentUser = JSON.parse(localStorage.getItem("Current_User")) ;
   const [country, setCountry] = useState("");
     const navigate = useNavigate();
   
@@ -18,8 +18,11 @@ const Checkout = () => {
 
   
 const [payment, setPayment] = useState("");
-
-
+useEffect(() => {
+  if (!CurentUser) {
+    navigate("/auth/login");
+  }
+}, [CurentUser, navigate]);
   if (!data) return <h2>No checkout data found</h2>;
 
  async function handleOrder() {

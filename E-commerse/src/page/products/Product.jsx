@@ -18,14 +18,28 @@ const Product = () => {
   const [brand, setBrand] = useState(
     BrandUrl ? [BrandUrl] : []
   );
-  const [gender, setGender] = useState(
-    categoryFromURL ? [categoryFromURL] : []
+  const [gender, setGender] = useState([]
   );
+    const [Pro_cate, setPro_cate] = useState([]
+  )
+
+  useEffect(() => {
+  if (categoryFromURL) {
+    setGender([categoryFromURL]);
+  } else {
+    setGender([]);
+  }
+}, [categoryFromURL]);
+  useEffect(() => {
+  if (procategoryFromurl) {
+    setPro_cate([procategoryFromurl]);
+  } else {
+    setPro_cate([]);
+  }
+}, [procategoryFromurl]);
+
   const [color, setColor] = useState([]);
   const [size, setSize] = useState([]);
-  const [Pro_cate, setPro_cate] = useState(
-    procategoryFromurl ? [procategoryFromurl] : []
-  )
 
   useEffect(() => {
     fetch(

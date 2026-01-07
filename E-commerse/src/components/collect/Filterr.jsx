@@ -115,15 +115,14 @@ function valuetext(value) {
       ))}
       <hr />
       {/* COLORS */}
-     <h4>Colors</h4>
+<h4>Colors</h4>
 <div style={{
-  columnCount: 2, /* Creates 2 columns */
+  columnCount: 2,
   columnGap: '10px'
 }}>
   {uniqueColors.map((c, i) => (
     <label key={i} style={{ 
       display: 'block',
-      breakInside: 'avoid', /* Prevent items from breaking across columns */
       marginBottom: '4px'
     }}>
       <input
@@ -131,12 +130,12 @@ function valuetext(value) {
         checked={color.includes(c)}
         onChange={(e) => {
           if (e.target.checked) {
-            setColor([...color, c]);
+            setColor(prev => [...prev, c]);
           } else {
-            setColor(color.filter((x) => x !== c));
+            setColor(prev => prev.filter((x) => x !== c));
           }
         }}
-      /> {" "+ c}
+      /> {" " + c}
     </label>
   ))}
 </div>

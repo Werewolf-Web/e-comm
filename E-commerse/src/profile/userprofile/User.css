@@ -1,0 +1,145 @@
+/* PAGE */
+.user-page {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  min-height: 100vh;
+}
+
+/* USER CARD */
+.user-card {
+  width: 350px;
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.user-title {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* AVATAR */
+.avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.avatar svg {
+  font-size: 80px;
+  color: #0d6efd;
+}
+
+/* FORM */
+.user-form label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
+
+.user-form input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #f8f9fa;
+  font-size: 14px;
+}
+
+/* ORDERS CARD */
+.orders-card {
+  flex: 1;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* TABLE */
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table thead {
+  background: #0d6efd;
+  color: white;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 12px;
+  text-align: center;
+}
+
+.orders-table tbody tr {
+  transition: 0.2s;
+}
+
+.orders-table tbody tr:hover {
+  background: #f1f5ff;
+}
+
+/* PRODUCT CELL */
+.product-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-cell img {
+  width: 50px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* STATUS */
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.delivered {
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #664d03;
+}
+
+.status.cancelled {
+  background: #f8d7da;
+  color: #842029;
+}
+
+/* BUTTON */
+.detail-btn {
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #0d6efd;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.detail-btn:hover {
+  background: #084298;
+}
+
+/* EMPTY */
+.empty {
+  text-align: center;
+  padding: 40px;
+  color: #777;
+}

@@ -46,23 +46,30 @@ const Cart = () => {
     return calculateSubtotal() + calculateShipping();
   };
 
-  const updateQuantity = (index, newQuantity) => {
-    if (newQuantity < 1) return;
-    
-    const updatedCart = [...cartItems];
-    const item = updatedCart[index];
-    
-    // Calculate new total price based on unit price
-    const unitPrice = (parseFloat(item.Totalprice) / item.quantity) || parseFloat(item.price) || 0;
-    updatedCart[index] = {
-      ...item,
-      quantity: newQuantity,
-      Totalprice: unitPrice * newQuantity
-    };
-    
-    setCartItems(updatedCart);
-    localStorage.setItem("Total_Cart", JSON.stringify(updatedCart));
+const updateQuantity = (index, newQuantity) => {
+  if (newQuantity < 1) return;
+
+  const updatedCart = [...cartItems];
+  const item = updatedCart[index];
+
+  // ✅ limit quantity to available stock
+  if (newQuantity > item.available) return;
+
+  const unitPrice =
+    (parseFloat(item.Totalprice) / item.quantity) ||
+    parseFloat(item.price) ||
+    0;
+
+  updatedCart[index] = {
+    ...item,
+    quantity: newQuantity,
+    Totalprice: unitPrice * newQuantity,
   };
+
+  setCartItems(updatedCart);
+  localStorage.setItem("Total_Cart", JSON.stringify(updatedCart));
+};
+
 const handleCheckout = () => {
   if (cartItems.length === 0) return alert("Cart is empty");
 

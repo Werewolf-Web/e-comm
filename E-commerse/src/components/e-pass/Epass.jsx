@@ -11,68 +11,64 @@ const Epass = () => {
   const [Password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = () => {
-    const newErrors = {};
+  const handleLogin = async (e) => {
+  e.preventDefault();
 
-    // Email validation
-    if (!Email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Email)) {
-      newErrors.email = "Please enter a valid email address";
-    }
+  const newErrors = {};
 
-    // Password validation
-    if (!Password) {
-      newErrors.password = "Password is required";
-    } else if (Password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
-    }
+  // Email validation
+  if (!Email.trim()) {
+    newErrors.email = "Email is required";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Email)) {
+    newErrors.email = "Please enter a valid email address";
+  }
 
-    // Set errors and check if there are any
-    setErrors(newErrors);
-    
-    // If there are errors, don't proceed
-    if (Object.keys(newErrors).length > 0) {
-      alert("Please fix the errors in the form");
-      return;
-    }
+  // Password validation
+  if (!Password) {
+    newErrors.password = "Password is required";
+  } else if (Password.length < 6) {
+    newErrors.password = "Password must be at least 6 characters";
+  }
 
-    setLoading(true);
+  // Set errors
+  setErrors(newErrors);
 
-    try {
-      const users = JSON.parse(localStorage.getItem("Total_users")) || [];
+  // Stop if errors exist
+  if (Object.keys(newErrors).length > 0) {
+    return;
+  }
 
-      const loggedUser = users.find(
+  setLoading(true);
+
+  try {
+    const res = await fetch("/data/register.json");
+    const data = await res.json();
+const users = data.register;
+   const loggedUser = users.find(
         (user) => user.email.toLowerCase() === Email.toLowerCase() && user.password === Password
       );
+    if (loggedUser) {
+      // Save logged-in user
+      localStorage.setItem("Current_User", JSON.stringify(loggedUser));
 
-      if (loggedUser) {
-        // Store only logged-in user
-        localStorage.setItem("Current_User", JSON.stringify(loggedUser));
-        alert("Login Successful");
-        
-        // Reset form
-        setEmail("");
-        setPassword("");
-        setErrors({});
-        
-        // Redirect to home page
-        window.location.href = "/";
-      } else {
-        alert("Invalid email or password");
-         // Reset form
-        setEmail("");
-        setPassword("");
-        setErrors({});
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      alert("An error occurred during login");
-    } finally {
-      setLoading(false);
+      alert("Login Successful");
+
+      setEmail("");
+      setPassword("");
+      setErrors({});
+
+      window.location.href = "/";
+    } else {
+      alert("Invalid email or password");
     }
-    
-  };
+  } catch (error) {
+    console.error("Login error:", error);
+    alert("An error occurred during login");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   // Helper function to clear error for a specific field
   const clearError = (fieldName) => {
