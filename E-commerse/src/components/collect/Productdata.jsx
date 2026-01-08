@@ -4,7 +4,7 @@ import Card from "./Card";
 const Productdata = ({ product }) => {
   return (
     <div className="container py-4" 
-    style={{width:"1200px"}}
+    style={{width:"auto"}}
     >
       <div className="row g-4">
         {product.map(item => (

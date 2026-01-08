@@ -234,7 +234,7 @@ const ProductDetail = () => {
           {/* SWIPER GALLERY */}
           <div
             style={{
-              height: "560px",
+              height: "100%",
               width: "400px",
               borderRadius: "8px",
               overflow: "hidden",

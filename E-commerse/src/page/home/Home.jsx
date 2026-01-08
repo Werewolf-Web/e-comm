@@ -12,6 +12,7 @@ import Newsletter from "../../components/news/Newsletter";
 import Aboutdetail from "../../components/aboutdetail/Aboutdetail";
 import Slidebr from "../../components/brandslide/Slidebr";
 import Collection from "../collection/Collection";
+import "./homee.css";
 import Seall from "../../components/sell/Seall";
 
 const Home = () => {
@@ -28,12 +29,12 @@ const Home = () => {
           marginTop: "-8px",
         }}
       >
-        <div className="carousel-inner" style={{ height: "400px" }}>
+        <div className="carousel-inner main-slider" >
           {/* SLIDE 1 */}
           <div className="carousel-item active">
             <div className="d-flex align-items-center h-100 px-5">
               {/* LEFT CONTENT */}
-              <div className="w-50" style={{ marginLeft: "100px" }}>
+              <div className="w-50 slide-1" >
                 <h1>
                   Top product of the <br /> Year!
                 </h1>
@@ -81,9 +82,9 @@ const Home = () => {
           </div>
 
           {/* SLIDE 2 */}
-          <div className="carousel-item">
+          <div className="carousel-item ">
             <div className="d-flex align-items-center h-100 px-5">
-              <div className="w-50" style={{ marginLeft: "100px" }}>
+              <div className="w-50 slide-1">
                 <h1>
                   New Collection <br /> 2025
                 </h1>
@@ -145,19 +146,14 @@ const Home = () => {
           <span className="carousel-control-next-icon"></span>
         </button>
       </div>
-      <div
-        className="d-flex gap-4 justify-content-center"
-        style={{ marginTop: "30px", height: "250px" }}
+      <div 
+        className="d-flex gap-4 justify-content-center offer-container"
+     
       >
         {/* CARD 1 */}
-        <div
-          className="d-flex align-items-center justify-content-between p-4"
-          style={{
-            height: "250px",
-            width: "550px",
-            backgroundColor: "#d4d4d4ff",
-            borderRadius: "15px"
-          }}
+        <div 
+          className="d-flex align-items-center justify-content-between p-4 offer-card-1"
+    
         >
           {/* DETAILS */}
           <div style={{ maxWidth: "300px" }}>
@@ -184,13 +180,8 @@ const Home = () => {
 
         {/* CARD 2 */}
         <div
-          className="d-flex align-items-center justify-content-between p-4"
-          style={{
-            height: "250px",
-            width: "550px",
-            backgroundColor: "#d4d4d4ff",
-            borderRadius: "15px"
-          }}
+          className="d-flex align-items-center justify-content-between p-4 offer-card-1"
+  
         >
           {/* DETAILS */}
           <div style={{ maxWidth: "300px" }}>
@@ -220,7 +211,7 @@ const Home = () => {
       {/*--------------       collection -----------  */}
       <Collection />
       {/* -------------------  thum part */}
-      <div className="" style={{ height: "490px" }}>
+      <div className="thum-part" style={{ height: "490px" }}>
         <div
           className="d-flex"
           style={{

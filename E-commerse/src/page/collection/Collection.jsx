@@ -3,7 +3,7 @@ import Product from '../products/Product'
 import Productdata from '../../components/collect/Productdata'
 import { Button } from 'bootstrap/dist/js/bootstrap.bundle.min'
 
-
+import './collect.css'
 
 const Collection = () => {
 
@@ -25,22 +25,19 @@ const Collection = () => {
 
     return (
         <>
-            <div className=''>
-                <div>
-                    <div>
-                        <h2 style={{ textAlign: "center", marginTop: "20px", fontSize: "40px", fontWeight: "500" }}>Top Collections
+            <div className='main-collect'>
+            
+                    <div >
+                        <h2 className='main-text' style={{ textAlign: "center", marginTop: "20px", fontSize: "40px", fontWeight: "500" }}>Top Collections
                         </h2>
-                        <p style={{ textAlign: "center" }}>Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.</p>
+                        <p className='main-text' style={{ textAlign: "center" }}>Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.</p>
                     </div>
-                </div>
+             
 
                 {/* ------- collection data */}
-           
-                <div className=''
-                
-                >
-                    <Productdata product={product} />
-                </div>
+           <div className='collection-data'>                  <Productdata product={product} /> </div>
+  
+          
                 <div className=''
                  style={{ textAlign: "center", marginBottom: "20px", fontSize: "50px", fontWeight: "500"}}
                 >

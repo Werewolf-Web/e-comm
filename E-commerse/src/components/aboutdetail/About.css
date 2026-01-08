@@ -7,20 +7,50 @@
   transition: all 0.3s ease;
 }
 
-
-
+/* Icon */
 .feature-icon {
   font-size: 50px !important;
   margin-bottom: 15px;
   color: #ffffff;
 }
 
+/* Title */
 .feature-card h4 {
   font-weight: 700;
   margin-bottom: 10px;
 }
 
+/* Text */
 .feature-card p {
   font-size: 14px;
   opacity: 0.9;
+}
+
+/* ✅ MOBILE RESPONSIVE */
+@media (max-width: 450px) {
+  .feature-card {
+          padding: 20px 15px;
+        width: 300px;
+margin: auto;
+        border-radius: 10px;
+  }
+
+  .feature-icon {
+    font-size: 40px !important;
+    margin-bottom: 10px;
+  }
+
+  .feature-card h4 {
+    font-size: 18px;
+  }
+
+  .no-show {
+   display: none
+  }
+}
+@media (hover: hover) {
+  .feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
 }

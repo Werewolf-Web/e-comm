@@ -14,7 +14,7 @@ const Slidebr = () => {
             <div>
 
                 <div
-                    style={{ height: "130px", width: "800px", alignItems: "center", textAlign: "center", paddingTop: "20px",justifyContent:"center",marginRight:"auto",marginLeft:"auto" }}
+                    style={{ height: "130px", width: "auto", alignItems: "center", textAlign: "center", paddingTop: "20px",justifyContent:"center",marginRight:"auto",marginLeft:"auto" }}
                 >
                     <h1 style={{ fontWeight: "700" }}>Brands</h1>
                     <p style={{ fontSize: "13px" }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been </p>

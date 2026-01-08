@@ -18,7 +18,7 @@ const Aboutdetail = () => {
         <div className="feature-card">
           <LocalShippingIcon className="feature-icon" />
           <h4>Free Shipping</h4>
-          <p>
+          <p className='no-show'>
             Enjoy free shipping on all orders, providing a convenient and
             cost-effective way to receive your favorite products.
           </p>
@@ -30,7 +30,7 @@ const Aboutdetail = () => {
         <div className="feature-card">
           <SupportAgentIcon className="feature-icon" />
           <h4>Support Agent</h4>
-          <p>
+                   <p className='no-show'>
             Our dedicated support team is here to assist you and provide
             exceptional customer service.
           </p>
@@ -42,7 +42,7 @@ const Aboutdetail = () => {
         <div className="feature-card">
           <LoopIcon className="feature-icon" />
           <h4>Return</h4>
-          <p>
+              <p className='no-show'>
             Hassle-free returns within a specified period. Simple and convenient
             return process.
           </p>
@@ -54,7 +54,7 @@ const Aboutdetail = () => {
         <div className="feature-card">
           <CurrencyRupeeIcon className="feature-icon" />
           <h4>Payment</h4>
-          <p>
+                   <p className='no-show'>
             Secure and convenient payment options for a seamless shopping
             experience.
           </p>

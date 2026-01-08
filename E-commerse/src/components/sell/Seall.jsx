@@ -7,7 +7,7 @@ import Sell from "./Sell";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
+import './sells.css'
 
 const Seall = () => {
   const [sell, setSell] = useState([]);
@@ -21,8 +21,9 @@ const Seall = () => {
 
   return (
     <>
+                    <div className='no-sealls'>
        <div
-                    style={{ height: "auto", width: "800px", alignItems: "center", textAlign: "center", paddingTop: "20px" ,justifyContent:"center",marginRight:"auto",marginLeft:"auto"}}
+                    style={{ height: "auto", width: "auto", alignItems: "center", textAlign: "center", paddingTop: "20px" ,justifyContent:"center",marginRight:"auto",marginLeft:"auto"}}
                 >
                     <h1 style={{ fontWeight: "700" }}>Top Seller</h1>
                     <p style={{ fontSize: "13px" }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been </p>
@@ -50,6 +51,7 @@ const Seall = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      </div>
     </>
   );
 };
