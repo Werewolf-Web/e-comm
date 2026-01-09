@@ -4,6 +4,7 @@ import Buttonback from "../../components/button/Buttonback";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Discount } from "@mui/icons-material";
+import "./checkOut.css";
 const Checkout = () => {
   const data = JSON.parse(localStorage.getItem("checkoutData"));
   const Totalcart = JSON.parse(localStorage.getItem("Total_Cart")) || [];
@@ -93,26 +94,13 @@ const Checkout = () => {
         <Buttonback url="/cart" />
       </div>
 
-      <div style={{ display: "flex", marginBottom: "30px", gap: "20px" }}>
+      <div className="main-user">
         {/* USER INFO */}
         <div
-          style={{
-            backgroundColor: "#ffffffff",
-            width: "880px",
-            margin: "auto",
-            marginTop: "20px",
-            marginLeft: "94px",
-            padding: "20px",
-          }}
+        className="sub-user"
         >
           <div
-            style={{
-              backgroundColor: "#efefefff",
-              width: "840px",
-              margin: "auto",
-              padding: "20px",
-              borderRadius: "10px",
-            }}
+            className="main-div"
           >
             <h3 style={{ fontSize: "29px", fontWeight: "600" }}>
               User Information
@@ -120,20 +108,14 @@ const Checkout = () => {
             <hr />
 
             {/* NAME */}
-            <div style={{ display: "flex", gap: "20px" }}>
+            <div className="all-div">
               <div style={{ flex: 1 }}>
                 <label style={{ fontWeight: "600" }}>FIRST NAME</label>
                 <input
                   type="text"
                   value={CurentUser?.firstName || ""}
                   readOnly
-                  style={{
-                    height: "43px",
-                    width: "100%",
-                    paddingLeft: "15px",
-                    borderRadius: "5px",
-                    border: "0.5px solid #ccc",
-                  }}
+                  className="input-value"
                 />
               </div>
 
@@ -143,32 +125,20 @@ const Checkout = () => {
                   type="text"
                   value={CurentUser?.lastName || ""}
                   readOnly
-                  style={{
-                    height: "43px",
-                    width: "100%",
-                    paddingLeft: "15px",
-                    borderRadius: "5px",
-                    border: "0.5px solid #ccc",
-                  }}
+                  className="input-value"
                 />
               </div>
             </div>
 
             {/* CONTACT */}
-            <div style={{ display: "flex", gap: "20px", marginTop: "15px" }}>
+            <div  className="all-div" style={{marginTop: "15px" }}>
               <div style={{ flex: 1 }}>
                 <label style={{ fontWeight: "600" }}>EMAIL</label>
                 <input
                   type="text"
                   value={CurentUser?.email || ""}
                   readOnly
-                  style={{
-                    height: "43px",
-                    width: "100%",
-                    paddingLeft: "15px",
-                    borderRadius: "5px",
-                    border: "0.5px solid #ccc",
-                  }}
+                  className="input-value"
                 />
               </div>
 
@@ -178,13 +148,7 @@ const Checkout = () => {
                   type="text"
                   value={CurentUser?.phone || ""}
                   readOnly
-                  style={{
-                    height: "43px",
-                    width: "100%",
-                    paddingLeft: "15px",
-                    borderRadius: "5px",
-                    border: "0.5px solid #ccc",
-                  }}
+                  className="input-value"
                 />
               </div>
             </div>
@@ -196,13 +160,7 @@ const Checkout = () => {
                 value={address}
                 type="text"
                 placeholder="Enter delivery address"
-                style={{
-                  height: "43px",
-                  width: "100%",
-                  paddingLeft: "15px",
-                  borderRadius: "5px",
-                  border: "0.5px solid #ccc",
-                }}
+               className="input-value"
                 onChange={(e) => setAddress(e.target.value)}
               />
             </div>
@@ -211,15 +169,7 @@ const Checkout = () => {
               <select
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
-                style={{
-                  height: "43px",
-                  width: "100%",
-                  marginTop: "4px",
-                  paddingLeft: "15px",
-                  backgroundColor: "white",
-                  border: "0.5px solid #ccc",
-                  borderRadius: "5px",
-                }}
+               className="country-input"
               >
                 <option value="">Select Country</option>
                 <option value="India">India</option>
@@ -230,19 +180,13 @@ const Checkout = () => {
               </select>
             </div>
             {/* CITY / STATE / ZIP */}
-            <div style={{ display: "flex", gap: "15px", marginTop: "15px" }}>
+            <div  className="all-div" style={{marginTop: "15px" }}>
               <div>
                 <label style={{ fontWeight: "600" }}>STATE</label>
                 <input
                   value={town}
                   type="text"
-                  style={{
-                    height: "43px",
-                    width: "200px",
-                    paddingLeft: "15px",
-                    borderRadius: "5px",
-                    border: "0.5px solid #ccc",
-                  }}
+                className="input-value"
                   onChange={(e) => setTown(e.target.value)}
                 />
               </div>
@@ -251,13 +195,7 @@ const Checkout = () => {
                 <input
                   value={city}
                   type="text"
-                  style={{
-                    height: "43px",
-                    width: "200px",
-                    paddingLeft: "15px",
-                    borderRadius: "5px",
-                    border: "0.5px solid #ccc",
-                  }}
+                  className="input-value"
                   onChange={(e) => setCity(e.target.value)}
                 />
               </div>
@@ -268,13 +206,7 @@ const Checkout = () => {
                   value={postcode}
                   type="number"
                   maxLength={6}
-                  style={{
-                    height: "43px",
-                    width: "200px",
-                    paddingLeft: "15px",
-                    borderRadius: "5px",
-                    border: "0.5px solid #ccc",
-                  }}
+                className="input-value"
                   onChange={(e) => setPostcode(e.target.value)}
                 />
               </div>
@@ -284,24 +216,12 @@ const Checkout = () => {
 
         {/* ORDER SUMMARY */}
         <div
-          style={{
-            backgroundColor: "#ffffffff",
-            height: "auto",
-            width: "430px",
-            marginTop: "20px",
-            marginRight: "60px",
-          }}
+        className="order-summary"
         >
           {/*  -----------    cart item                --------------            */}
 
           <div
-            style={{
-              backgroundColor: "#efefef",
-              width: "400px",
-              margin: "20px auto",
-              padding: "15px",
-              borderRadius: "10px",
-            }}
+           className="cart-item"
           >
             <h3 style={{ fontSize: "18px", fontWeight: "600" }}>
               Cart Items{" "}
@@ -330,7 +250,7 @@ const Checkout = () => {
                   <div style={{ fontSize: "12px" }}>Qty: {item.quantity}</div>
                 </div>
 
-                <div style={{ fontSize: "14px", fontWeight: "600" }}>
+                <div style={{ fontSize: "14px", fontWeight: "600" }} className="total-price">
                   ₹{item.Totalprice}
                 </div>
               </div>
@@ -339,16 +259,7 @@ const Checkout = () => {
 
           {/* ---------------------------------------------       order summary         ----------------  */}
           <div
-            style={{
-              backgroundColor: "#efefefff",
-              width: "400px",
-              margin: "auto",
-              marginTop: "20px",
-              marginLeft: "13px",
-              padding: "20px",
-
-              borderRadius: "10px",
-            }}
+className="cart-item"
           >
             <div>
               <h3 style={{ fontSize: "20px", fontWeight: "600" }}>
@@ -458,16 +369,7 @@ const Checkout = () => {
             </div>
           </div>
           <div
-            style={{
-              backgroundColor: "#efefefff",
-              width: "400px",
-              margin: "auto",
-              marginTop: "20px",
-              marginLeft: "13px",
-              padding: "20px",
-              marginBottom: "20px",
-              borderRadius: "10px",
-            }}
+  className="cart-item"
           >
             <h3 style={{ fontSize: "20px", fontWeight: "600" }}>
               Payment Method

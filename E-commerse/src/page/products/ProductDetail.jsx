@@ -219,20 +219,11 @@ const ProductDetail = () => {
         </div>
         <Buttonback url="/products" />
         {/* MAIN CARD */}
-        <div
-          style={{
-            backgroundColor: "rgba(240, 240, 240, 0.67)",
-            width: "70%",
-            margin: "25px auto",
-            borderRadius: "10px",
-            display: "flex",
-            gap: "30px",
-            padding: "30px",
-            flexWrap: "wrap",
-          }}
+        <div className="card-main"
+         
         >
           {/* SWIPER GALLERY */}
-          <div
+          <div className="SWIPER-GALLERY"
             style={{
               height: "100%",
               width: "400px",
@@ -257,6 +248,7 @@ const ProductDetail = () => {
         <ReactImageMagnify
           {...{
             smallImage: {
+              className:"image-for-media",
               alt: `${product.name} ${index + 1}`,
               isFluidWidth: true,
               src: image,

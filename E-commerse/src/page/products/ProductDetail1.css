@@ -1,4 +1,24 @@
 /* ProductGallery.css */
+.card-main{
+
+            background-color: rgba(240, 240, 240, 0.67);
+            width: 70%;
+            margin: 25px auto;
+            border-radius: 10px;
+            display: flex;
+            gap: 30px;
+            padding: 30px;
+            flex-wrap: wrap;
+  
+}
+
+
+
+
+
+
+
+
 .product-gallery-container {
   height: 100%;
   display: flex;
@@ -111,11 +131,16 @@
   .product-gallery-container {
     height: 400px;
   }
-  
+  .magnify-wrapper {
+    pointer-events: none;
+  }
   .main-swiper {
     height: 320px;
   }
-
+.card-main
+{
+width: auto;   
+}
   .thumb-swiper {
     height: 60px;
   }

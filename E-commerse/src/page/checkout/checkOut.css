@@ -1,0 +1,97 @@
+.main-user {
+  display: flex;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+.order-summary {
+  background-color: #ffffffff;
+  height: auto;
+  width: 430px;
+  margin-top: 20px;
+  margin-right: 60px;
+}
+.cart-item {
+  background-color: #efefef;
+  width: 400px;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 10px;
+}
+.input-value {
+  height: 43px;
+  width: 100%;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 0.5px solid #ccc;
+}
+.country-input{
+                  height: 43px;
+                  width: 100%;
+                  margin-top: 4px;
+                  padding-left: 15px;
+                  background-color: white;
+                  border: 0.5px solid #ccc;
+                  border-radius: 5px;
+            
+}
+.main-div{
+
+              background-color: #efefefff;
+              width: 840px;
+              margin: auto;
+              padding: 20px;
+              border-radius: 10px;
+        
+}
+.sub-user{
+  
+            background-color: #ffffffff;
+            width: 880px;
+            margin: auto;
+            margin-top: 20px;
+            margin-left: 94px;
+            padding: 20px;
+          
+}
+.all-div{
+display: flex; gap: 20px;
+}
+@media (max-width: 450px) {
+  .main-user {
+    flex-wrap: wrap;
+  }
+  
+    .main-div {
+    width: 100%;          /* full width */
+    margin: 0;            /* remove side margins */
+    padding: 15px;        /* smaller padding */
+    border-radius: 8px;
+  }
+
+  .all-div {
+    flex-direction: column;  /* stack inputs */
+    gap: 10px;               /* smaller gap */
+  }
+.sub-user{
+    margin: 0%;
+}
+  .input-value,
+  .country-input {
+    width: 100%;
+  }
+  .order-summary {
+    margin: auto;
+  }
+  .cart-item {
+    width: 320px;
+    margin: auto;
+    margin-top: 10px;
+  }
+  .total-price {
+    padding-left: 10px;
+  }
+  .bg-primary {
+    margin-top: 10px;
+  }
+}
