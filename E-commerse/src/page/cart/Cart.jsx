@@ -5,7 +5,7 @@ import noproduct from "../../assets/noProduct.jpg"
 import Checkout from "../checkout/Checkout";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import "./cartt.css"
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();

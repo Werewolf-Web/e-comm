@@ -1,0 +1,46 @@
+.order-wrapper{
+     display: flex;
+          gap: 30px;
+          margin: auto;
+          margin-left: 50px;
+          margin-bottom: 30px;
+}
+@media (max-width: 450px) {
+
+  /* allow items to go to next line */
+  .order-wrapper {
+    flex-wrap: wrap;
+    gap: 15px;
+      
+  }
+
+  /* make both columns take full row */
+  .order-wrapper > div {
+    min-width: 100%;
+  }
+
+  /* remove left offset effect */
+  .order-wrapper {
+    padding-left: 0;
+    margin: 0px;
+  }
+
+  /* tables stay inside screen */
+  .order-wrapper table {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  /* summary box (width: 400px inline) */
+  .order-wrapper div[style*="width: 400px"] {
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /* images scale down */
+  .order-wrapper img {
+    width: 45px;
+    height: auto;
+  }
+}

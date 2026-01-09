@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import PersonIcon from "@mui/icons-material/Person";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import "./orderdetail.css"
 const Orderdetail = () => {
   const { id } = useParams();
   const [order, setOrder] = useState(null);
@@ -59,13 +60,9 @@ const Orderdetail = () => {
           User id : {order.CurentID}{" "}
         </h4>
       </div>
-      <div
+      <div  className="order-wrapper"
         style={{
-          display: "flex",
-          gap: "30px",
-          margin: "auto",
-          marginLeft: "50px",
-          marginBottom: "30px",
+       
         }}
       >
         <div

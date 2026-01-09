@@ -1,0 +1,58 @@
+@media (max-width: 450px) {
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;          /* allow horizontal scroll */
+    white-space: nowrap;
+  }
+
+  thead {
+    display: none;             /* hide table header */
+  }
+
+  tbody tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  tbody td {
+
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    text-align: left !important;
+    white-space: normal;
+    font-size: 14px;
+  }
+
+  /* Product cell */
+  tbody td:first-child {
+    display: block;
+  }
+
+  tbody td:first-child img {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Quantity buttons */
+  tbody td button {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+    tbody td:last-child {
+    display: block;
+    width: 100%;
+    text-align: right;
+    margin-top: 8px;
+  }
+
+  tbody td:last-child button {
+    display: inline-block;
+    width: auto;
+  }
+}
