@@ -23,6 +23,25 @@
   }
 }
 
+@media (max-width: 440px) {
+  .category-item img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 700px) {
+  .categories-row {
+    gap: 30px;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 705px) {
+  .categories-row {
+    gap: 40px;
+  }
+}
+
 .category-item h3 {
   margin-top: 10px;
   font-size: 18px;

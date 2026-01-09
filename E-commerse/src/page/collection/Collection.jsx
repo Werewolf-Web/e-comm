@@ -11,7 +11,7 @@ const Collection = () => {
  
     useEffect(()=>{
             //    fetch('http://192.168.9.200:3000/products')
-        fetch('http://localhost:3001/products?_limit=8')
+        fetch('http://192.168.8.252:3001/products?_limit=8')
         .then(res=>{
             return res.json();
         })

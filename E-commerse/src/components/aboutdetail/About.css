@@ -48,6 +48,25 @@ margin: auto;
    display: none
   }
 }
+
+@media (max-width: 440px) {
+  .feature-card {
+    width: 100%;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 700px) {
+  .feature-card {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 705px) {
+  .feature-card {
+    width: 45%;
+  }
+}
 @media (hover: hover) {
   .feature-card:hover {
     transform: translateY(-6px);

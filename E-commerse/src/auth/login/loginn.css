@@ -1,0 +1,17 @@
+.login-card{
+
+            background-color: white;
+            height: 85%;
+            width: 390px;
+              border-radius: 10px;
+          
+}
+
+@media (max-width:450px) {
+    .login-card{
+        width: 340px;
+    }
+    .login-card a{
+        
+    }
+}

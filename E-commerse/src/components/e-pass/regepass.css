@@ -1,0 +1,53 @@
+/* =======================
+   Mobile ≤ 450px
+======================= */
+@media (max-width: 450px) {
+  /* form container */
+  div[style*="width: 480px"] {
+    width: 100% !important;
+    padding: 10px;
+  }
+
+  /* rows with two inputs */
+  div[style*="display: flex"][style*="gap: 15px"] {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* icons slightly smaller */
+  svg {
+    font-size: 20px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 15px;
+  }
+}
+
+
+/* =======================
+   Small Mobile ≤ 350px
+======================= */
+@media (max-width: 350px) {
+  div[style*="width: 480px"] {
+    width: 100% !important;
+    padding: 8px;
+  }
+
+  input {
+    font-size: 13px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  button {
+    height: 42px;
+    font-size: 14px;
+  }
+}

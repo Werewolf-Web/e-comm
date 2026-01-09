@@ -3,7 +3,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-
+import "./epass.css"
 const Epass = () => {
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
@@ -220,12 +220,7 @@ const users = data.register;
             </label>
             <a
               href="/auth/forget-password"
-              style={{
-                fontSize: "12px",
-                paddingLeft: "130px",
-                textDecoration: "none",
-                fontWeight: "500",
-              }}
+              className="forget"
             >
               Forgot Password
             </a>
@@ -237,16 +232,8 @@ const users = data.register;
           style={{ height: "60px", marginTop: "10px" }}
         >
           <button
-            className="btn btn-primary"
-            style={{
-              height: "32px",
-              width: "359px",
-              lineHeight: "29px",
-              padding: 0,
-              textAlign: "center",
-              fontSize: "13px",
-              fontWeight: "700",
-            }}
+            className="btn btn-primary regbtn"
+            
             onClick={handleLogin}
           >
             Login

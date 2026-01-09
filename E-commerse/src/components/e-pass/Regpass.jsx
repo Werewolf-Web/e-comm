@@ -8,7 +8,7 @@ import FemaleIcon from "@mui/icons-material/Female";
 import LockIcon from "@mui/icons-material/Lock";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-
+import './regepass.css'
 const Regpass = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [Firstname, setFirstname] = useState("");
