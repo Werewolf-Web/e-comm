@@ -75,7 +75,7 @@ const Home = () => {
                   src={slide1}
                   className="img-fluid"
                   alt="slide1"
-                  style={{ maxHeight: "400px" }}
+             
                 />
               </div>
             </div>
@@ -120,7 +120,7 @@ const Home = () => {
                   src={slide1}
                   className="img-fluid"
                   alt="slide2"
-                  style={{ maxHeight: "400px" }}
+         
                 />
               </div>
             </div>
@@ -221,8 +221,7 @@ const Home = () => {
         >
           <div
             style={{
-              height: "300px",
-              width: "250vh",
+     
               marginTop: "100px",
               marginLeft: "100px",
               marginRight: "50px",

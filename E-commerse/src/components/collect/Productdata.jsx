@@ -1,10 +1,10 @@
 import React from 'react'
 import Card from "./Card";
-
+import './prodata.css'
 const Productdata = ({ product }) => {
   return (
     <div className="container py-4" 
-    style={{width:"auto"}}
+    style={{width:"100%"}}
     >
       <div className="row g-4">
         {product.map(item => (

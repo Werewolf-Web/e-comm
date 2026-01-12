@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-
+import "./filtter.css"
 const Filterr = ({
   setBrand,
   brand,
@@ -45,10 +45,25 @@ function valuetext(value) {
     setValue(newValue);
   };
   return (
-    <div
+     <>
+      <div className="d-flex gap-3 filterr-main ">
+
+<button  style={{height:"30px",width:"60px",backgroundColor:"rgb(165, 165, 165) "}} className="navbar-toggler for-mobile" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      Filter
+    </button>
+
+<nav className="navbar navbar-expand-lg">
+  <div className="container-fluid">
+    
+    <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div className="offcanvas-header">
+        <button type="button" className="btn-close for-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div className="offcanvas-body">
+      <div
       style={{
         marginLeft: "80px",
-        marginTop: "30px",
+       
         height: "auto",
         width: "230px",
         padding: "16px",
@@ -195,7 +210,31 @@ function valuetext(value) {
       >
         Clear All
       </button>
+
+
+
+
+
     </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+   </>
   );
 };
 

@@ -25,7 +25,7 @@ const Collection = () => {
 
     return (
         <>
-            <div className='main-collect'>
+            <div className='main-collect ' >
             
                     <div >
                         <h2 className='main-text' style={{ textAlign: "center", marginTop: "20px", fontSize: "40px", fontWeight: "500" }}>Top Collections

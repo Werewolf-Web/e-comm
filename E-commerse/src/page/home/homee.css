@@ -1,3 +1,8 @@
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+}
 .offer-container {
   margin-top: 30px;
   height: 250px;
@@ -20,25 +25,108 @@
     height: 400px;
 }
 
+/* RESPONSIVE QUERIES */
 
-@media (max-width: 450px) {
+/* 450px to 800px */
+@media (min-width: 450px) and (max-width: 800px) {
     .main-slider {
         display: none;
     }
+    .slide-1 {
+        margin-left: 30px;
+    }
+    .offer-container {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .offer-card-1 {
+        width: 90%;
+        height: auto;
+        padding: 15px !important;
+    }
+    .offer-card-1 img {
+      display: none;
+    }
+    .thum-part {
+        height: auto !important;
+    }
+    .thum-part .d-flex {
+        flex-direction: column;
+        height: auto !important;
+    }
+}
+
+/* 801px to 980px */
+@media (min-width: 801px) and (max-width: 980px) {
+    .slide-1 {
+        margin-left: 50px;
+    }
+    .offer-card-1 {
+        width: 45%;
+        height: 250px;
+    }
+    .offer-card-1 img {
+        height: 200px !important;
+    }
+}
+
+/* 980px and above */
+@media (min-width: 981px) {
+    .offer-container {
+        display: flex;
+    }
+}
+
+/* Below 450px */
+@media (max-width: 449px) {
+    .main-slider {
+       display: none;
+    }
+    .slide-1 {
+        margin-left: 20px;
+    }
+    .offer-container {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    .offer-card-1 {
+        height: auto;
+        width: 100%;
+        padding: 15px !important;
+    }
+    .offer-card-1 img {
+        height: 150px !important;
+        display: none;
+    }
+    .thum-part {
+        display: none;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1100px) {
+             .main-slider {
+       display: none;
+       
+    }
+    .offer-container img{
+        display: none;
+    }
+}
+.img-fluid {
+    max-width: 800px;
+    height: 600px;}
+
+@media (min-width: 800px) and (max-width: 1070px) {
     .thum-part{
         display: none;
     }
-    
-    .offer-container{height: auto;
-        flex-wrap: wrap;}
-.offer-card-1{
-        height: 210px;
-    width: 350px;
 }
-.offer-card-1 img{
-        display: contents;
-}
-.img-fluid{
-    display: contents;
-}
- }
+    @media (min-width: 1100px) and (max-width: 1180px) {
+        .img-fluid {
+    max-width: 800px;
+    height: 600px;}
+    }
+

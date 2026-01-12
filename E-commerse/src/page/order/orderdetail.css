@@ -5,6 +5,16 @@
           margin-left: 50px;
           margin-bottom: 30px;
 }
+
+.total-table{
+      background-color: rgb(255, 255, 255);
+    width: 400px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
 @media (max-width: 450px) {
 
   /* allow items to go to next line */
@@ -45,21 +55,39 @@
   }
 }
 
-@media (max-width: 440px) {
-  .order-wrapper table {
-    font-size: 11px;
-  }
-}
-
-@media (min-width: 450px) and (max-width: 700px) {
-  .order-wrapper {
-    margin-left: 20px;
+@media (min-width: 450px) and (max-width: 800px) {
+    .order-wrapper {
     flex-wrap: wrap;
+    gap: 15px;
+      
   }
+
+  /* make both columns take full row */
+  .order-wrapper > div {
+    min-width: 100%;
+  }
+
+  /* remove left offset effect */
+  .order-wrapper {
+    padding-left: 0;
+    margin: 0px;
+  }
+
+  /* tables stay inside screen */
+  .order-wrapper table {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  /* summary box (width: 400px inline) */
+.total-table{
+  margin: auto;
+  width: auto;
 }
 
-@media (min-width: 700px) and (max-width: 705px) {
-  .order-wrapper {
-    margin-left: 30px;
+  /* images scale down */
+  .order-wrapper img {
+    width: 45px;
+    height: auto;
   }
 }

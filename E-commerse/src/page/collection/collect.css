@@ -1,7 +1,7 @@
 
 @media (max-width: 450px) {
       .main-collect{
-        margin-top: 400px;
+        margin-top: 340px;
     }
     .main-text{
         font-size: 15px;
@@ -9,5 +9,17 @@
     .collection-data{
                 margin: auto;
         margin-left: 40px;
+    }
+}
+@media (min-width: 450px) and (max-width: 700px) {
+      .main-collect{
+        margin-top: 300px;
+    }
+    .main-text{
+        font-size: 15px;
+    }
+    .collection-data{
+                margin: auto;
+        margin-left: 60px;
     }
 }

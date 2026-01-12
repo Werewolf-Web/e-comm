@@ -139,15 +139,79 @@
 
 /* EMPTY */
 .empty {
+  
   text-align: center;
   padding: 40px;
   color: #777;
 }
-@media (max-width:450px) {
-  .user-page{
+
+/* RESPONSIVE QUERIES */
+
+/* 450px to 800px */
+@media (min-width: 450px) and (max-width: 800px) {
+  .user-page {
     flex-direction: column;
+    padding: 20px;
+    gap: 20px;
   }
-  .user-card{
-    width: auto;
+  .user-card {
+    width: 100%;
+  }
+  .orders-card {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .orders-table {
+    min-width: 600px;
+  }
+}
+
+/* 801px to 980px */
+@media (min-width: 801px) and (max-width: 980px) {
+  .user-page {
+    gap: 20px;
+    padding: 30px;
+  }
+  .user-card {
+    width: 300px;
+  }
+  .orders-card {
+    overflow-x: auto;
+  }
+  .orders-table {
+    min-width: 600px;
+  }
+}
+
+/* 980px and above */
+@media (min-width: 981px) {
+  .user-page {
+    flex-direction: row;
+  }
+  .user-card {
+    width: 350px;
+  }
+}
+
+/* Small screens below 450px */
+@media (max-width: 449px) {
+  .user-page {
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+  .user-card {
+    width: 100%;
+    padding: 15px;
+  }
+  .orders-card {
+    padding: 10px;
+    overflow-x: auto;
+  }
+  .orders-table {
+    min-width: 500px;
+  }
+  .avatar svg {
+    font-size: 60px;
   }
 }

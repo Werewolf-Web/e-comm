@@ -160,16 +160,7 @@ const Orderdetail = () => {
             </div>
           </div>
           <div
-            style={{
-              backgroundColor: "#ffffffff",
-              width: "400px",
-              padding: "10px",
-              marginLeft: "auto",
-              marginRight: "15px",
-              borderRadius:"10px",
-              marginBottom:"15px"
-              
-            }}
+           className="total-table"
           >
             <table className="table">
               <tbody>
@@ -196,7 +187,7 @@ const Orderdetail = () => {
             </table>
           </div>
         </div>
-        <div style={{ backgroundColor: "rgba(255, 255, 255, 1)", width: "35%" }}>
+        <div style={{ backgroundColor: "rgba(255, 255, 255, 1)", width: "100%" }}>
           <div
             style={{
               backgroundColor: "#ccc",

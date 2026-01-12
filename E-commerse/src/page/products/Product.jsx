@@ -54,7 +54,7 @@ if (product.length === 0) {
     <>
       <Track title="Product" />
       
-      <div className="d-flex gap-3">
+
         <Filterr
           brand={brand}
           gender={gender}
@@ -95,7 +95,7 @@ if (product.length === 0) {
             />
           </div>
         </div>
-      </div>
+
     </>
   );
 }
@@ -104,7 +104,8 @@ if (product.length === 0) {
     <>
       <Track title="Product"  nameLink="/products" LName="Products" />
 
-      <div className="d-flex gap-3">
+<div className="d-flex flex-wrap flex-sm-nowrap  flex-md-nowrap gap-3">
+
         <Filterr
           brand={brand}
           gender={gender}

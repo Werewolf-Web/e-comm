@@ -56,3 +56,64 @@
     width: auto;
   }
 }
+@media (min-width: 452px) and (max-width: 800px) {
+
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  tbody tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  tbody td {
+    display: flex;                 /* 🔑 missing */
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    text-align: left !important;
+    white-space: normal;
+    font-size: 14px;
+  }
+
+  /* Product cell */
+  tbody td:first-child {
+    display: block;
+  }
+
+  tbody td:first-child img {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Quantity buttons */
+  tbody td button {
+          width: 79px;
+        height: 38px;
+        font-size: 14px;
+  }
+
+  /* Action button */
+  tbody td:last-child {
+    display: flex;
+
+    margin-top: 8px;
+  }
+
+}

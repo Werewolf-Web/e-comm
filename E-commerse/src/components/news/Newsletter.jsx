@@ -28,8 +28,8 @@ const Newsletter = () => {
         </div>
         <div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"20px",marginTop:"20px",width:"auto"}}>
 <a href="https://www.facebook.com/"><FacebookSharpIcon style={{fontSize:"30px"}}/></a>
-        <a href="https://www.youtube.com/"><YouTubeIcon style={{fontSize:"30px"}}/></a>
-        <a href="https://www.instagram.com/"><InstagramIcon style={{fontSize:"30px"}}/></a>
+        <a href="https://www.youtube.com/"><YouTubeIcon style={{fontSize:"30px",color:"red"}}/></a>
+        <a href="https://www.instagram.com/"><InstagramIcon style={{fontSize:"30px",color:"#904141"}}/></a>
         <a href="https://www.linkedin.com/"><LinkedInIcon style={{fontSize:"30px"}}/></a>
         </div>
         <div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"20px",marginTop:"20px",width:"auto"}}>

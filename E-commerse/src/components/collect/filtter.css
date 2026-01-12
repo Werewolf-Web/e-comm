@@ -1,0 +1,19 @@
+.filterr-main {
+
+  margin: 10px;
+}
+
+@media (min-width: 993px) {
+  .for-mobile {
+    display: none;
+  }
+  .for-close{
+    display: none;
+  }
+}
+@media (max-width:450px) {
+
+
+
+}
+

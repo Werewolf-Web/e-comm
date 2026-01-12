@@ -84,7 +84,7 @@ const Regpass = () => {
     };
 
     try {
-      // Try to save to json-server first
+      // Try to save to                                                                                                                                            first
       const response = await fetch("http://localhost:3002/register", {
         method: "POST",
         headers: {
