@@ -8,7 +8,7 @@
     "json:products": "json-server --watch data/product.json --port 3001 --host 0.0.0.0",
     "json:register": "json-server --watch data/register.json --port 3002 --host 0.0.0.0",
     "json:orders": "json-server --watch data/order.json --port 3003 --host 0.0.0.0",
-    "json:all": "concurrently \"npm run json:products\" \"npm run json:register\" \"npm run json:orders\"",
+     "json:all":"concurrently \"npm run json:products\" \"npm run json:register\" \"npm run json:orders\"",
     "dev:all": "concurrently \"npm run dev\" \"npm run json:all\"",
     "build": "vite build",
     "lint": "eslint .",
